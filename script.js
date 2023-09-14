@@ -165,7 +165,7 @@ const return_btn= document.getElementById("return_btn");
 
 return_btn.addEventListener('click',
 function(e){
-    // console.log("Hello");
+    console.log("Hello");
     window.location.replace("https://kalingacomputer.netlify.app/");
 }
-);
+)
