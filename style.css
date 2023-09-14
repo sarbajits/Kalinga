@@ -1,1 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Alatsi', sans-serif; */
+    user-select: none;
+}
 
+body {
+    color: white;
+    background: #212121;
+}
+
+nav {
+    height: 50px;
+    width: 100%;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+}
+nav h1:hover {
+    scale: 1.01;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    top: 60px;
+}
+
+.note-section {
+    height: 100%;
+    width: 90vw;
+    background-color: #6f6f6f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.note {
+    height: fit-content;
+    width: 85vw;
+    background: #000;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.note img{
+    width: 80vw;
+}
+#pdf{
+    position: fixed;
+    top:10px;
+
+}
