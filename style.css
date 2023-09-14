@@ -12,7 +12,7 @@ body {
 }
 
 nav {
-    height: 50px;
+    height: 60px;
     width: 100%;
     background: red;
     display: flex;
@@ -20,6 +20,7 @@ nav {
     justify-content: center;
     position: fixed;
     z-index: 10;
+    padding: 5px;
 }
 nav h1:hover {
     scale: 1.01;
@@ -36,7 +37,7 @@ nav h1:hover {
 }
 
 .note-section {
-    height: 100%;
+    height: fit-content;
     width: 90vw;
     background-color: #6f6f6f;
     display: flex;
@@ -50,6 +51,7 @@ nav h1:hover {
 .note {
     height: fit-content;
     width: 85vw;
+    margin-bottom: 10px;
     background: #000;
     border-radius: 6px;
     display: flex;
@@ -59,9 +61,4 @@ nav h1:hover {
 }
 .note img{
     width: 80vw;
-}
-#pdf{
-    position: fixed;
-    top:10px;
-
 }
