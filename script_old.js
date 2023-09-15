@@ -96,5 +96,69 @@ const note_link={
 
 fundamental.addEventListener('click',
     function (e) {
-        
+        main.innerHTML = `
+        <iframe src="${note_link.fundamental}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
     });
+win7.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.win7}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+word.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.word}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+excel.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.excel}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+powerpoint.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.powerpoint}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+access.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.access}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+photoshop.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.photoshop}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+pagemaker.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.pagemaker}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+html.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.html}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+word_old.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.word_old}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+excel_old.addEventListener('click',
+    function (e) {
+        main.innerHTML = `
+        <iframe src="${note_link.excel_old}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+
+    
