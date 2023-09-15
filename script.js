@@ -96,5 +96,7 @@ const note_link={
 
 fundamental.addEventListener('click',
     function (e) {
-        window.location.pathname("/notes.html/")
+        console.log("Hiiii");
+        window.location.replace("/notes.html")
+        
     });
