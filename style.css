@@ -138,3 +138,12 @@ img {
         opacity: 1
     }
 }
+
+.main a{
+    color: white;
+    text-decoration: none;
+    background: limegreen;
+    border: 1px solid blue;
+    border-radius: 6px;
+    padding: 5px;
+}

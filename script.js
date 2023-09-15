@@ -2,20 +2,20 @@ let slideIndex = 0;
 showSlides();
 
 function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 4000); // Change image every 2 seconds
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
 
 
@@ -31,7 +31,7 @@ const html = document.getElementById('html')
 const word_old = document.getElementById('word_old')
 const excel_old = document.getElementById('excel_old')
 
-const main = document.querySelector(".main")
+const note_main = document.querySelector("#note_main")
 
 
 fundamental.innerHTML = `
@@ -80,23 +80,94 @@ excel_old.innerHTML = `
 `;
 
 
-const note_link={
-    fundamental:"https://drive.google.com/file/d/1FGujMtij03eCXLFm2exRTxt2_TnqTv2Y/",
-    win7:"https://drive.google.com/file/d/1aLYlBW9Fek0yF3kQgd_7Me5HKadxMvmK/",
-    word:"https://drive.google.com/file/d/1fQSuDADhzggjpqk2p8Zfl6kCtysLmAHi/",
-    excel:"https://drive.google.com/file/d/1FIvBDIlI9Gu5FFFU8co4nAJkMFeW17p9/",
-    powerpoint:"https://drive.google.com/file/d/1UdOOuR3EFuYn_IrQV1e2phWAz5KkRUup/",
-    access:"https://drive.google.com/file/d/1OwGClN3aTCJqZoPYW9jFlslTb6bIiOcK/",
-    photoshop:"https://drive.google.com/file/d/1LhI5L20oY_o7ukTYx7fUneSIUhzUCSmG/",
-    pagemaker:"https://drive.google.com/file/d/1Ekrs72RFYIMC6caf03yvKUz64ggMeLc4/",
-    html:"https://drive.google.com/file/d/1RLoJm8_fBc526CmRSA4ndUf-XyS68-6E/",
-    word_old:"https://drive.google.com/file/d/1u5oXkCdtSLytfsNhYWUmW4RYrf04EuLa/",
-    excel_old:"https://drive.google.com/file/d/1UXgGQvJpfrHKqBX6RzpMT6uX46prlMQs/"
+const note_link = {
+    fundamental: "https://drive.google.com/file/d/1FGujMtij03eCXLFm2exRTxt2_TnqTv2Y/",
+    win7: "https://drive.google.com/file/d/1aLYlBW9Fek0yF3kQgd_7Me5HKadxMvmK/",
+    word: "https://drive.google.com/file/d/1fQSuDADhzggjpqk2p8Zfl6kCtysLmAHi/",
+    excel: "https://drive.google.com/file/d/1FIvBDIlI9Gu5FFFU8co4nAJkMFeW17p9/",
+    powerpoint: "https://drive.google.com/file/d/1UdOOuR3EFuYn_IrQV1e2phWAz5KkRUup/",
+    access: "https://drive.google.com/file/d/1OwGClN3aTCJqZoPYW9jFlslTb6bIiOcK/",
+    photoshop: "https://drive.google.com/file/d/1LhI5L20oY_o7ukTYx7fUneSIUhzUCSmG/",
+    pagemaker: "https://drive.google.com/file/d/1Ekrs72RFYIMC6caf03yvKUz64ggMeLc4/",
+    html: "https://drive.google.com/file/d/1RLoJm8_fBc526CmRSA4ndUf-XyS68-6E/",
+    word_old: "https://drive.google.com/file/d/1u5oXkCdtSLytfsNhYWUmW4RYrf04EuLa/",
+    excel_old: "https://drive.google.com/file/d/1UXgGQvJpfrHKqBX6RzpMT6uX46prlMQs/"
 }
 
 fundamental.addEventListener('click',
     function (e) {
-        console.log("Hiiii");
-        window.location.replace("/notes.html")
-        
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.fundamental}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+win7.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.win7}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+word.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.word}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+excel.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.excel}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+powerpoint.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.powerpoint}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+access.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.access}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+photoshop.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.photoshop}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+pagemaker.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.pagemaker}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+html.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.html}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+word_old.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.word_old}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
+    });
+excel_old.addEventListener('click',
+    function (e) {
+        window.location.replace("/notes.html");
+        note_main.innerHTML = `
+        <iframe src="${note_link.excel_old}preview" width="100%" height="100%" allow="autoplay"></iframe>
+    `;
     });
