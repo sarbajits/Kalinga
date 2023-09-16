@@ -1,3 +1,26 @@
+var users = [
+    { username: "admin", password: "kalinga" },
+    { username: "user", password: "password" },
+    // Add more users as needed
+];
+const alert=document.querySelector(".alert");
+
+function checkCredentials() {
+    var username = document.getElementById("login-username").value;
+    var password = document.getElementById("login-password").value;
+
+    for (var i = 0; i < users.length; i++) {
+        if (username === users[i].username && password === users[i].password) {
+            // alert("Login successful!");
+            window.open("/home.html" , "_self");
+            return;
+        }
+    }
+    const alert=document.querySelector(".alert");
+    // alert("Invalid credentials. Please try again.");
+    alert.innerHTML="Wrong Password!!!";
+}
+
 function openSecondWebpage(value) {
     // Encode the value to ensure proper URL handling
     var encodedValue = encodeURIComponent(value);
@@ -52,14 +75,14 @@ const html = document.getElementById('html')
 const word_old = document.getElementById('word_old')
 const excel_old = document.getElementById('excel_old')
 
-fundamental.setAttribute("onclick","openSecondWebpage(note_link.fundamental)");
-win7.setAttribute("onclick","openSecondWebpage(note_link.win7)");
-word.setAttribute("onclick","openSecondWebpage(note_link.word)");
-excel.setAttribute("onclick","openSecondWebpage(note_link.excel)");
-powerpoint.setAttribute("onclick","openSecondWebpage(note_link.powerpoint)");
-access.setAttribute("onclick","openSecondWebpage(note_link.access)");
-photoshop.setAttribute("onclick","openSecondWebpage(note_link.photoshop)");
-pagemaker.setAttribute("onclick","openSecondWebpage(note_link.pagemaker)");
-html.setAttribute("onclick","openSecondWebpage(note_link.html)");
-word_old.setAttribute("onclick","openSecondWebpage(note_link.word_old)");
-excel_old.setAttribute("onclick","openSecondWebpage(note_link.excel_old)");
+fundamental.setAttribute("onclick", "openSecondWebpage(note_link.fundamental)");
+win7.setAttribute("onclick", "openSecondWebpage(note_link.win7)");
+word.setAttribute("onclick", "openSecondWebpage(note_link.word)");
+excel.setAttribute("onclick", "openSecondWebpage(note_link.excel)");
+powerpoint.setAttribute("onclick", "openSecondWebpage(note_link.powerpoint)");
+access.setAttribute("onclick", "openSecondWebpage(note_link.access)");
+photoshop.setAttribute("onclick", "openSecondWebpage(note_link.photoshop)");
+pagemaker.setAttribute("onclick", "openSecondWebpage(note_link.pagemaker)");
+html.setAttribute("onclick", "openSecondWebpage(note_link.html)");
+word_old.setAttribute("onclick", "openSecondWebpage(note_link.word_old)");
+excel_old.setAttribute("onclick", "openSecondWebpage(note_link.excel_old)");

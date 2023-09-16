@@ -1,131 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
-  <title>Kalinga Computer Education</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fafafa;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .container {
+            padding: 40px;
+            background-color: white;
+            border: 5px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            background-color: #fafafa;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #c00000;
+        }
+        .developer{
+            font-size: 8px;
+        }
+        .alert {
+            font-size: small;
+            letter-spacing: 2px;
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+            animation: animate 1s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        // Your JavaScript code goes here
+    </script>
 </head>
 
 <body>
-  <nav>
-    <img src="https://gcdnb.pbrd.co/images/yQskNDb63pK1.jpg" alt="Logo" height="50px">
-    <h1>Kalinga Computer Education </h1>
-  </nav>
-  <div class="main">
-    <div class="slideshow-container">
-
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="https://gcdnb.pbrd.co/images/7D16Vc1RGPA5.jpg" style="width:100%">
-        <div class="text">Batch 1&2 Group</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="https://gcdnb.pbrd.co/images/TdaqMSvSw1Pa.jpg" style="width:100%">
-        <div class="text">Batch 7 Group</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="https://gcdnb.pbrd.co/images/I8TPLrZCQYmw.jpg" style="width:100%">
-        <div class="text">Batch 4 Group (New Center)</div>
-      </div>
-
+    <div class="container">
+        <div class="logo">
+            <img src="https://gcdnb.pbrd.co/images/yQskNDb63pK1.jpg" alt="Logo">
+        </div>
+        <input type="text" id="login-username" placeholder="Username" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <div class="alert"></div>
+        <button onclick="checkCredentials()">Login</button>
     </div>
-    <br>
-
-    <div style="text-align:center">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-    <div class="note-section">
-      <h2>Notes Section</h2>
-      <div class="note" id="fundamental">
-        <img src="https://cyber.olympiadsuccess.com/assets/images/cyber_square/cyber_topic_13.jpg" alt="Fundamental">
-        <h3>Fundamental Note</h3>
-      </div>
-      <div class="note" id="win7">
-        <img src="https://redmondmag.com/-/media/ECG/redmondmag/Images/introimages2014/140812REDMackieWin7.jpg"
-          alt="Windows 7">
-        <h3>Windows 7 Note Note</h3>
-      </div>
-      <div class="note" id="word">
-        <img src="https://images.livemint.com/img/2021/07/01/1600x900/MSW_1625167807940_1625167818629.png" alt="Word">
-        <h3>Word Note</h3>
-      </div>
-      <div class="note" id="excel">
-        <img
-          src="https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20-%202021-02-12T211518_067.jpg"
-          alt="Excel">
-        <h3>Excel Note</h3>
-      </div>
-      <div class="note" id="powerpoint">
-        <img
-          src="https://cdn.techjockey.com/blog/wp-content/uploads/2020/11/03140707/free-microsoft-powerpoint-alternatives_feature.jpg"
-          alt="Powerpoint">
-        <h3>Powerpoint Note</h3>
-      </div>
-      <div class="note" id="access">
-        <img src="https://www.hyperoffice.com/blog/wp-content/uploads/2022/09/maxresdefault.jpg" alt="Access">
-        <h3>Access Note</h3>
-      </div>
-      <div class="note" id="photoshop">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2022/9/GP/QY/YB/30966494/adobe-photoshop-7-0.png"
-          alt="Photoshop">
-        <h3>Photoshop Note</h3>
-      </div>
-      <div class="note" id="pagemaker">
-        <img
-          src="https://5.imimg.com/data5/SELLER/Default/2021/2/WZ/PU/ZQ/120773045/adobe-pagemaker-7-0-fastest-e-mail-whatsapp-delivery-500x500.jpg"
-          alt="Pagemaker">
-        <h3>Pagemaker Note</h3>
-      </div>
-      <div class="note" id="html">
-        <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/11/what-is-html-3.jpg" alt="HTML">
-        <h3>HTML Note</h3>
-      </div>
-      <div class="note" id="word_old">
-        <img src="https://images.livemint.com/img/2021/07/01/1600x900/MSW_1625167807940_1625167818629.png"
-          alt="Word Old Note">
-        <h3>Word Old Note</h3>
-      </div>
-      <div class="note" id="excel_old">
-        <img
-          src="https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20-%202021-02-12T211518_067.jpg"
-          alt="Excel Old Note">
-        <h3>Excel Old Note</h3>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-  <script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 4000); // Change image every 2 seconds
-    }
-  </script>
+    <div class="developer">This app is developed by Sarbajit 2023.</div>
+    
+    <script src="script.js"></script>
 </body>
 
 </html>
