@@ -60,7 +60,9 @@ nav h1:hover {
     border-radius: 6px;
     margin-top: 20px;
 }
-
+.note-section h2{
+    margin-bottom: 5px;
+}
 .note {
     height: fit-content;
     width: 90vw;
