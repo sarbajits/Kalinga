@@ -59,12 +59,17 @@ if (value) {
 function goBack() {
     window.history.back();
 }
+
 function login() {
     window.open("/login.html", "_self");
 }
 
-function exam(){
-    window.open("/exam.html", "_self");
+function theory(){
+    window.open("/theory.html", "_self");
+}
+
+function practical(){
+    window.open("/practical.html", "_self");
 }
 // ***********************************************************************
 const note_link = {

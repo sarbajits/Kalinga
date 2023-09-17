@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        iframe {
+            background: linear-gradient(to left,rgb(255, 186, 186), white, rgb(0,254, 140), white, rgb(255, 186, 186));
+            position: relative;
+            top: 60px;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Examination</title>
+</head>
+
+<body>
+    <nav>
+        <img src="https://gcdnb.pbrd.co/images/yQskNDb63pK1.jpg" alt="Logo" height="50px">
+        <h1>Kalinga Computer Education </h1>
+    </nav>
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe6yP7UZ3n3_w_3WpF_PAKqMBOwicv0j-TKfg2oKWqtrHGggA/viewform?embedded=true"
+        frameborder="0" marginheight="0" marginwidth="0" id="form_google">Loading…</iframe>
+    <script src="/scripts/script.js"></script>
+    <script>
+        var iframe = document.getElementById('form_google');
+
+        function reloadIframe() {
+            iframe.src = iframe.src;  // Reload the iframe
+        }
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                reloadIframe();
+            }
+        });
+        window.addEventListener('focus', reloadIframe);
+        window.addEventListener('blur', function () {
+            // Reload the iframe only if it's not in the active window
+            if (!document.hidden) {
+                reloadIframe();
+            }
+        });
+    </script>
+</body>
+
+</html>
