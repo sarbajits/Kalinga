@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fafafa;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .container {
+            padding: 40px;
+            background-color: white;
+            border: 5px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            background-color: #fafafa;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #c00000;
+        }
+        .developer{
+            font-size: 8px;
+        }
+        .alert {
+            font-size: small;
+            letter-spacing: 2px;
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+            animation: animate 1s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Log in to view notes</h1>
+            <img src="https://gcdnb.pbrd.co/images/yQskNDb63pK1.jpg" alt="Logo">
+        </div>
+        <input type="text" id="login-username" placeholder="Username" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <div class="alert"></div>
+        <button onclick="checkCredentials()">Login</button>
+    </div>
+    <div class="developer">This app is developed by Sarbajit 2023.</div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

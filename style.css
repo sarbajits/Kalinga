@@ -36,25 +36,25 @@ nav h1:hover {
     align-items: center;
     padding: 10px;
     position: relative;
-    top: 60px;
+    top: 50px;
 }
 
 .note-section {
     height: fit-content;
-    width: 90vw;
+    width: 95vw;
     background-color: #6f6f6f;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
     border-radius: 6px;
     margin-top: 20px;
 }
 
 .note {
     height: fit-content;
-    width: 85vw;
+    width: 90vw;
     margin-bottom: 10px;
     background: #000;
     border-radius: 6px;
@@ -65,7 +65,7 @@ nav h1:hover {
 }
 
 .note img {
-    width: 80vw;
+    width: 90vw;
 }
 
 
@@ -76,7 +76,7 @@ nav h1:hover {
     margin-top: 20px;
 }
 
-img {
+.mySlides img {
     vertical-align: middle;
 }
 
@@ -85,7 +85,6 @@ img {
     /* max-width: 1000px; */
     position: relative;
     /* margin: auto; */
-
 }
 
 /* Caption text */
@@ -112,7 +111,7 @@ img {
 .dot {
     height: 15px;
     width: 15px;
-    margin: 0 2px;
+    margin: 10px 2px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -120,7 +119,7 @@ img {
 }
 
 .active {
-    background-color: #717171;
+    background-color: #0004ff;
 }
 
 /* Fading animation */
@@ -138,6 +137,8 @@ img {
         opacity: 1
     }
 }
+
+
 .button{
     display: flex;
     flex-direction: column;

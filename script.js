@@ -1,26 +1,24 @@
 var users = [
-    { username: "admin", password: "kalinga" },
-    { username: "user", password: "password" },
+    { username: "admin", password: "kalinga", fname: "Kalinga Computer" },
+    { username: "user", password: "password", fname: "Kalinga Staff" },
     // Add more users as needed
 ];
-const alert=document.querySelector(".alert");
-
+const alert = document.querySelector(".alert");
 function checkCredentials() {
     var username = document.getElementById("login-username").value;
     var password = document.getElementById("login-password").value;
-
+    var alert = document.querySelector(".alert");
     for (var i = 0; i < users.length; i++) {
         if (username === users[i].username && password === users[i].password) {
             // alert("Login successful!");
-            window.open("/home.html" , "_self");
+            alert.innerHTML = "Loading....";
+            window.open("/home.html", "_self");
             return;
         }
     }
-    const alert=document.querySelector(".alert");
     // alert("Invalid credentials. Please try again.");
-    alert.innerHTML="Wrong Password!!!";
+    alert.innerHTML = "Wrong Password!!!";
 }
-
 function openSecondWebpage(value) {
     // Encode the value to ensure proper URL handling
     var encodedValue = encodeURIComponent(value);
@@ -47,7 +45,9 @@ if (value) {
 function goBack() {
     window.history.back();
 }
-
+function login() {
+    window.open("/login.html", "_self")
+}
 // ***********************************************************************
 const note_link = {
     fundamental: "https://drive.google.com/file/d/1FGujMtij03eCXLFm2exRTxt2_TnqTv2Y/preview",
