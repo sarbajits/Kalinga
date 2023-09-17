@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/styles/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
-    <div class="adv"><img src="/adv1.jpeg" alt="Adv" height="100%" width="100%"></div>
+    <div class="adv"><img src="images/adv1.jpeg" alt="Adv" height="100%" width="100%"></div>
     <div class="note-section" onclick="login()">
       <h2>Notes Section</h2>
       <div class="note">
@@ -102,28 +102,8 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
-  <script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 4000); // Change image every 2 seconds
-    }
-  </script>
+  <script src="/scripts/script.js"></script>
+  <script src="/scripts/sliding_script.js"></script>
 </body>
 
 </html>

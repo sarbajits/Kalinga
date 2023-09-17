@@ -29,6 +29,15 @@ nav h1:hover {
     scale: 1.01;
 }
 
+.hidden-nav {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  body.nav-hidden .main {
+    top: 0;
+  }
+
 .main {
     height: 100vh;
     display: flex;
@@ -67,7 +76,6 @@ nav h1:hover {
 .note img {
     width: 90vw;
 }
-
 
 .mySlides {
     display: none;
