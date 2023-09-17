@@ -60,7 +60,11 @@ function goBack() {
     window.history.back();
 }
 function login() {
-    window.open("/login.html", "_self")
+    window.open("/login.html", "_self");
+}
+
+function exam(){
+    window.open("/exam.html", "_self");
 }
 // ***********************************************************************
 const note_link = {
