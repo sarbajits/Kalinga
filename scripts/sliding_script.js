@@ -2,9 +2,9 @@ const studentsData = [
   { image: '/images/toppers/st1.jpg', name: 'Arpita' },
   { image: '/images/toppers/st2.jpg', name: 'Suchismita' },
   { image: '/images/toppers/st3.jpg', name: 'Gayatree' },
-  { image: '/images/toppers/st4.jpg', name: 'Student 4' },
-  { image: '/images/toppers/st5.jpg', name: 'Student 5' },
-  { image: '/images/toppers/st6.jpg', name: 'Student 6' }
+  { image: '/images/toppers/st4.jpg', name: 'Biswajit' },
+  { image: '/images/toppers/st5.jpg', name: 'Ipsita' },
+  { image: '/images/toppers/st6.jpg', name: 'Chinmayee' }
 ];
 
 const topperSection = document.getElementById('topper-section');
