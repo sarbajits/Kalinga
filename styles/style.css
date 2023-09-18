@@ -22,9 +22,11 @@ nav {
     z-index: 10;
     padding: 5px;
 }
-nav img{
+
+nav img {
     margin-right: 10px;
 }
+
 nav h1:hover {
     scale: 1.01;
 }
@@ -32,11 +34,11 @@ nav h1:hover {
 .hidden-nav {
     transform: translateY(-100%);
     transition: transform 0.3s ease;
-  }
-  
-  body.nav-hidden .main {
+}
+
+body.nav-hidden .main {
     top: 0;
-  }
+}
 
 .main {
     height: 100vh;
@@ -46,6 +48,49 @@ nav h1:hover {
     padding: 10px;
     position: relative;
     top: 50px;
+}
+.main h3{
+    animation: blink-animation 0.5s step-start infinite;
+}
+.topper-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.student {
+    text-align: center;
+    margin: 5px;
+}
+
+.circle-image {
+    width: 28vw;
+    height: 28vw;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid#ff0000;
+}
+
+.blink {
+    border-radius: 6px;
+    background-color: red;
+    animation: blink-animation 0.5s step-start infinite;
+}
+
+@keyframes blink-animation {
+
+    0%,
+    25%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    75%,
+    100% {
+        opacity: 0.2;
+    }
 }
 
 .note-section {
@@ -60,9 +105,11 @@ nav h1:hover {
     border-radius: 6px;
     margin-top: 20px;
 }
-.note-section h2{
+
+.note-section h2 {
     margin-bottom: 5px;
 }
+
 .note {
     height: fit-content;
     width: 90vw;
@@ -83,7 +130,7 @@ nav h1:hover {
     display: none;
     border: 5px solid white;
     border-radius: 6px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .mySlides img {
@@ -114,7 +161,7 @@ nav h1:hover {
     padding: 8px 12px;
     position: absolute;
     top: 0;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 /* The dots/bullets/indicators */
@@ -149,7 +196,7 @@ nav h1:hover {
 }
 
 
-.button{
+.button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,11 +204,16 @@ nav h1:hover {
     position: relative;
     top: 60px;
 }
-.button button{
+
+.button button {
     color: white;
     text-decoration: none;
     background: limegreen;
     border: 1px solid blue;
     border-radius: 6px;
     padding: 5px;
+}
+
+.adv {
+    width: 100%;
 }
