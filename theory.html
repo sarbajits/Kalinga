@@ -38,13 +38,7 @@
                 reloadIframe();
             }
         });
-        window.addEventListener('focus', reloadIframe);
-        window.addEventListener('blur', function () {
-            // Reload the iframe only if it's not in the active window
-            if (!document.hidden) {
-                reloadIframe();
-            }
-        });
+        
     </script>
 </body>
 
