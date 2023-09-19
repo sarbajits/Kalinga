@@ -1,3 +1,14 @@
+const images = ["/images/image1.jpg", "/images/image2.jpg", "/images/image3.jpg"]; // Add more image URLs as needed
+const imageElement = document.getElementById('galleryImage');
+let currentIndex = 0;
+
+function updateImage() {
+  imageElement.src = images[currentIndex];
+  currentIndex = (currentIndex + 1) % images.length;
+}
+
+setInterval(updateImage, 2000); // Update image every 2 seconds
+
 const studentsData = [
   { image: '/images/toppers/st1.jpg', name: 'Arpita' },
   { image: '/images/toppers/st2.jpg', name: 'Suchismita' },
