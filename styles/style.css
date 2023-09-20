@@ -251,3 +251,7 @@ padding:20px 5px;
     color: red;
     text-decoration: none;
 }
+
+footer p{
+user-select:all;
+}
