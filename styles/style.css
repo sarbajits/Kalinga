@@ -226,7 +226,7 @@ footer {
     background-color: #f0f0f0;
     border-radius: 6px;
     margin: 10px 5px;
-padding:20px 5px;
+    padding: 20px 5px;
 }
 
 .footer-content {
@@ -239,7 +239,7 @@ padding:20px 5px;
 .footer-content ul {
     list-style: none;
     padding: 0;
-margin-top:20px;
+    margin-top: 20px;
 }
 
 .footer-content ul li {
@@ -251,11 +251,11 @@ margin-top:20px;
     font-size: larger;
     color: white;
     text-decoration: none;
-background-color:red;
-border-radius:4px;
-padding:4px 10px;
+    background-color: red;
+    border-radius: 4px;
+    padding: 4px 10px;
 }
 
-footer p{
-user-select:all;
+footer p {
+    user-select: all;
 }
