@@ -249,8 +249,10 @@ margin-top:20px;
 
 .footer-content ul li a {
     font-size: larger;
-    color: red;
+    color: white;
     text-decoration: none;
+background-color:red;
+border-radius:4px;
 }
 
 footer p{
