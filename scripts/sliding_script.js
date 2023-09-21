@@ -72,3 +72,46 @@ function showSlides() {
   dots[slideIndex - 1].className += " active";
   setTimeout(showSlides, 2000);
 }
+
+const imageUrls = [
+  '/images/std/students (1).jpeg',
+  '/images/std/students (2).jpeg',
+  '/images/std/students (3).jpeg',
+  '/images/std/students (4).jpeg',
+  '/images/std/students (5).jpeg',
+  '/images/std/students (6).jpeg',
+  '/images/std/students (7).jpeg',
+  '/images/std/students (8).jpeg',
+  '/images/std/students (9).jpeg',
+  '/images/std/students (10).jpeg',
+  '/images/std/students (11).jpeg',
+  '/images/std/students (12).jpeg',
+  '/images/std/students (13).jpeg',
+  '/images/std/students (14).jpeg',
+  '/images/std/students (15).jpeg',
+];
+
+function showFloatingDiv() {
+  const floatingDiv = document.getElementById('floatingDiv');
+  const imageGallery = document.getElementById('imageGallery');
+
+  // Create img elements for each image URL
+  imageUrls.forEach(imageUrl => {
+    const imgElement = document.createElement('img');
+    imgElement.src = imageUrl;
+    imgElement.alt = 'Gallery Image';
+    imageGallery.appendChild(imgElement);
+  });
+
+  floatingDiv.style.display = 'block';
+}
+
+function closeFloatingDiv() {
+  const floatingDiv = document.getElementById('floatingDiv');
+  const imageGallery = document.getElementById('imageGallery');
+  imageGallery.innerHTML = ''; // Clear the image gallery content
+  floatingDiv.style.display = 'none';
+}
+
+// Show the floating div initially
+document.addEventListener('DOMContentLoaded', showFloatingDiv);
