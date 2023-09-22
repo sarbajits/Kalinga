@@ -74,7 +74,7 @@ function showSlides() {
 }
 
 const imageUrls = [
-  '/images/std/students (1).jpeg',
+  '/images/std/students (14).jpeg',
   '/images/std/students (2).jpeg',
   '/images/std/students (3).jpeg',
   '/images/std/students (4).jpeg',
@@ -87,7 +87,7 @@ const imageUrls = [
   '/images/std/students (11).jpeg',
   '/images/std/students (12).jpeg',
   '/images/std/students (13).jpeg',
-  '/images/std/students (14).jpeg',
+  '/images/std/students (1).jpeg',
   '/images/std/students (15).jpeg',
 ];
 
