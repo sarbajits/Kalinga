@@ -1,6 +1,6 @@
 var users = [
-    { username: "admin", password: "kalinga", name: "Kalinga Computer" },
-    { username: "User", password: "kalinga", name: "Kalinga Staff" },
+    { username: "admin", password:"kce@2006", name: "Kalinga Computer" },
+    { username: staff", password: "kalinga", name: "Kalinga Staff" },
     {
         "name": "Sarbajit Sahoo",
         "username": "Sarbajit",
