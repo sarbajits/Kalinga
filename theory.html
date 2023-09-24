@@ -43,7 +43,32 @@
                 reloadIframe();
             }
         });
-        
+        let inactivityTimer;
+
+function startInactivityTimer() {
+  // Adjust the time (in milliseconds) for the desired inactivity duration
+  const inactivityDuration = 10000;  // for 10 sec
+
+  inactivityTimer = setTimeout(refreshPage, inactivityDuration);
+}
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  startInactivityTimer();
+}
+
+function refreshPage() {
+  // Reload the page
+  location.reload();
+}
+
+// Event listeners to detect user activity for both mouse and touch events
+document.addEventListener('mousemove', resetInactivityTimer);
+document.addEventListener('keydown', resetInactivityTimer);
+document.addEventListener('touchstart', resetInactivityTimer);
+
+// Start the inactivity timer initially
+startInactivityTimer();
     </script>
 </body>
 
