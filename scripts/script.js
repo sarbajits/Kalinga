@@ -1383,12 +1383,22 @@ function login() {
     window.open("/login.html", "_self");
 }
 
-function theory() {
-    window.open("/theory.html", "_self");
+function exam() {
+    window.open("/exam.html", "_self");
+}
+function theory1() {
+    window.open("/theory1.html", "_self");
 }
 
-function practical() {
-    window.open("/practical.html", "_self");
+function practical1() {
+    window.open("/practical1.html", "_self");
+}
+function theory2() {
+    window.open("/theory2.html", "_self");
+}
+
+function practical2() {
+    window.open("/practical2.html", "_self");
 }
 // ***********************************************************************
 const note_link = {
