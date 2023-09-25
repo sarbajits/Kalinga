@@ -1324,8 +1324,8 @@ var users = [
 ];
 const alert = document.querySelector(".alert");
 function checkCredentials() {
-    var username = document.getElementById("login-username").value;
-    var password = document.getElementById("login-password").value;
+    var username = document.getElementById("login-username").value.trim();
+    var password = document.getElementById("login-password").value.trim();
     var alert = document.querySelector(".alert");
     for (var i = 0; i < users.length; i++) {
         if (username === users[i].username && password === users[i].password) {
