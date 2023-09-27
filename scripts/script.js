@@ -1,5 +1,5 @@
 var users = [
-    { username: "admin", password:"kce@2006", name: "Kalinga Computer" },
+    { username: "admin", password: "kce@2006", name: "Kalinga Computer" },
     { username: "staff", password: "kalinga", name: "Kalinga Staff" },
     // { username:"temp", password: "kalinga", name: "Kalinga Staff" },
     {
@@ -1321,260 +1321,260 @@ var users = [
         "name": "SMRUTI RANJAN NAYAK",
         "username": "Smruti",
         "password": "@Smru2001"
-    }
+    },
 
-        //Batch-12-13
-        {
-            "name": "BISWAJIT BEHERA",
-            "username": "Biswajit",
-            "password": "@Bisw2006"
-        },
-        {
-            "name": "SUNYATARA BEHERA",
-            "username": "Sunyatara",
-            "password": "@Suny2003"
-        },
-        {
-            "name": "DHARITRI RANA",
-            "username": "Dharitri",
-            "password": "@Dhar2005"
-        },
-        {
-            "name": "GAYATREE RANA",
-            "username": "Gayatree",
-            "password": "@Gaya2003"
-        },
-        {
-            "name": "SUDHANSU PRADHAN",
-            "username": "Sudhansu",
-            "password": "@Sudh2004"
-        },
-        {
-            "name": "SAROJ KUMAR MOHAPATRA",
-            "username": "Saroj",
-            "password": "@Saro2003"
-        },
-        {
-            "name": "SATYAJIT ROUT",
-            "username": "Satyajit",
-            "password": "@Saty2004"
-        },
-        {
-            "name": "SUJIT KUMAR SAHOO",
-            "username": "Sujit",
-            "password": "@Suji2006"
-        },
-        {
-            "name": "RUDRA NARAYAN SAHOO",
-            "username": "Rudra",
-            "password": "@Rudr2003"
-        },
-        {
-            "name": "SWABHIMAN PRADHAN",
-            "username": "Swabhiman",
-            "password": "@Swab2004"
-        },
-        {
-            "name": "JASMIN BEHERA",
-            "username": "Jasmin",
-            "password": "@Jasm2004"
-        },
-        {
-            "name": "TAPAS KUMAR BARIK",
-            "username": "Tapas",
-            "password": "@Tapa2003"
-        },
-        {
-            "name": "RAJAT KUMAR SAHOO",
-            "username": "Rajat",
-            "password": "@Raja2004"
-        },
-        {
-            "name": "LAXMIPRIYA JENA",
-            "username": "Laxmipriya",
-            "password": "@Laxm2004"
-        },
-        {
-            "name": "ADYASHA PANDA",
-            "username": "Adyasha",
-            "password": "@Adya2004"
-        },
-        {
-            "name": "LAXMIPRIYA BEHERA",
-            "username": "Laxmipriya",
-            "password": "@Laxm2003"
-        },
-        {
-            "name": "SUNIL KUMAR SAHOO",
-            "username": "Sunil",
-            "password": "@Suni2001"
-        },
-        {
-            "name": "PARBATI PRADHAN",
-            "username": "Parbati",
-            "password": "@Parb2006"
-        },
-        {
-            "name": "SIKRUTI SATAPATHY",
-            "username": "Sikruti",
-            "password": "@Sikr2005"
-        },
-        {
-            "name": "NISHAT AFREEN",
-            "username": "Nishat",
-            "password": "@Nish2004"
-        },
-        {
-            "name": "RAJIB KARMAKAR",
-            "username": "Rajib",
-            "password": "@Raji2002"
-        },
-        {
-            "name": "URMILA SWAIN",
-            "username": "Urmila",
-            "password": "@Urmi2004"
-        },
-        {
-            "name": "ANIL PUHAN",
-            "username": "Anil",
-            "password": "@Anil2003"
-        },
-        {
-            "name": "ITINA JENA",
-            "username": "Itina",
-            "password": "@Itin2003"
-        },
-        {
-            "name": "JAGANNATH PRADHAN",
-            "username": "Jagannath",
-            "password": "@Jaga2004"
-        },
-        {
-            "name": "RAKESH KUMAR PRADHAN",
-            "username": "Rakesh",
-            "password": "@Rake2004"
-        },
-        {
-            "name": "STITIPRANGYA SAHOO",
-            "username": "Stitiprangya",
-            "password": "@Stit2004"
-        },
-        {
-            "name": "MANISHA SAHOO",
-            "username": "Manisha",
-            "password": "@Mani2001"
-        },
-        {
-            "name": "CHANDAN BEHERA",
-            "username": "Chandan",
-            "password": "@Chan2004"
-        },
-        {
-            "name": "SOURAV NANDA",
-            "username": "Sourav",
-            "password": "@Sour2003"
-        },
-        {
-            "name": "GEETANJALI PRADHAN",
-            "username": "Geetanjali",
-            "password": "@Geet1999"
-        },
-        {
-            "name": "SONALI PRIYADARSHINI ROUT",
-            "username": "Sonali",
-            "password": "@Sona2005"
-        },
-        {
-            "name": "BHAGYASHREE SAHOO",
-            "username": "Bhagyashree",
-            "password": "@Bhag2005"
-        },
-        {
-            "name": "ARPITA NAYAK",
-            "username": "Arpita",
-            "password": "@Arpi2001"
-        },
-        {
-            "name": "PRIYAMBADA PRADHAN",
-            "username": "Priyambada",
-            "password": "@Priy1992"
-        },
-        {
-            "name": "SWARNAPRIYA DAS",
-            "username": "Swarnapriya",
-            "password": "@Swar2004"
-        },
-        {
-            "name": "DEBI PRASAD BARIK",
-            "username": "Debi",
-            "password": "@Debi1999"
-        },
-        {
-            "name": "PINKINA SAHOO",
-            "username": "Pinkina",
-            "password": "@Pink2000"
-        },
-        {
-            "name": "SRABANI BAR",
-            "username": "Srabani",
-            "password": "@Srab2002"
-        },
-        {
-            "name": "SUCHARITA SAHOO",
-            "username": "Sucharita",
-            "password": "@Such2000"
-        },
-        {
-            "name": "MAHEFUJ KHAN",
-            "username": "Mahefuj",
-            "password": "@Mahe2002"
-        },
-        {
-            "name": "SWATIPUSPA BEHERA",
-            "username": "Swatipuspa",
-            "password": "@Swat1999"
-        },
-        {
-            "name": "SUCHISMITA PATRA",
-            "username": "Suchismita",
-            "password": "@Such2000"
-        },
-        {
-            "name": "SUBHASHREE JENA",
-            "username": "Subhashree",
-            "password": "@Subh2004"
-        },
-        {
-            "name": "CHINMAYA PRUSTY",
-            "username": "Chinmaya",
-            "password": "@Chin2001"
-        },
-        {
-            "name": "BINOD BARIK",
-            "username": "Binod",
-            "password": "@Bino2003"
-        },
-        {
-            "name": "SIBANI SUBHADARSHINI",
-            "username": "Sibani",
-            "password": "@Siba2003"
-        },
-        {
-            "name": "SUNIL HATI",
-            "username": "Sunil",
-            "password": "@Suni2004"
-        },
-        {
-            "name": "ALOK JENA",
-            "username": "Alok",
-            "password": "@Alok2005"
-        },
-        {
-            "name": "JHANSI BISOI",
-            "username": "Jhansi",
-            "password": "@Jhan2002"
-        }
-    ];
+    //Batch-12-13
+    {
+        "name": "BISWAJIT BEHERA",
+        "username": "Biswajit",
+        "password": "@Bisw2006"
+    },
+    {
+        "name": "SUNYATARA BEHERA",
+        "username": "Sunyatara",
+        "password": "@Suny2003"
+    },
+    {
+        "name": "DHARITRI RANA",
+        "username": "Dharitri",
+        "password": "@Dhar2005"
+    },
+    {
+        "name": "GAYATREE RANA",
+        "username": "Gayatree",
+        "password": "@Gaya2003"
+    },
+    {
+        "name": "SUDHANSU PRADHAN",
+        "username": "Sudhansu",
+        "password": "@Sudh2004"
+    },
+    {
+        "name": "SAROJ KUMAR MOHAPATRA",
+        "username": "Saroj",
+        "password": "@Saro2003"
+    },
+    {
+        "name": "SATYAJIT ROUT",
+        "username": "Satyajit",
+        "password": "@Saty2004"
+    },
+    {
+        "name": "SUJIT KUMAR SAHOO",
+        "username": "Sujit",
+        "password": "@Suji2006"
+    },
+    {
+        "name": "RUDRA NARAYAN SAHOO",
+        "username": "Rudra",
+        "password": "@Rudr2003"
+    },
+    {
+        "name": "SWABHIMAN PRADHAN",
+        "username": "Swabhiman",
+        "password": "@Swab2004"
+    },
+    {
+        "name": "JASMIN BEHERA",
+        "username": "Jasmin",
+        "password": "@Jasm2004"
+    },
+    {
+        "name": "TAPAS KUMAR BARIK",
+        "username": "Tapas",
+        "password": "@Tapa2003"
+    },
+    {
+        "name": "RAJAT KUMAR SAHOO",
+        "username": "Rajat",
+        "password": "@Raja2004"
+    },
+    {
+        "name": "LAXMIPRIYA JENA",
+        "username": "Laxmipriya",
+        "password": "@Laxm2004"
+    },
+    {
+        "name": "ADYASHA PANDA",
+        "username": "Adyasha",
+        "password": "@Adya2004"
+    },
+    {
+        "name": "LAXMIPRIYA BEHERA",
+        "username": "Laxmipriya",
+        "password": "@Laxm2003"
+    },
+    {
+        "name": "SUNIL KUMAR SAHOO",
+        "username": "Sunil",
+        "password": "@Suni2001"
+    },
+    {
+        "name": "PARBATI PRADHAN",
+        "username": "Parbati",
+        "password": "@Parb2006"
+    },
+    {
+        "name": "SIKRUTI SATAPATHY",
+        "username": "Sikruti",
+        "password": "@Sikr2005"
+    },
+    {
+        "name": "NISHAT AFREEN",
+        "username": "Nishat",
+        "password": "@Nish2004"
+    },
+    {
+        "name": "RAJIB KARMAKAR",
+        "username": "Rajib",
+        "password": "@Raji2002"
+    },
+    {
+        "name": "URMILA SWAIN",
+        "username": "Urmila",
+        "password": "@Urmi2004"
+    },
+    {
+        "name": "ANIL PUHAN",
+        "username": "Anil",
+        "password": "@Anil2003"
+    },
+    {
+        "name": "ITINA JENA",
+        "username": "Itina",
+        "password": "@Itin2003"
+    },
+    {
+        "name": "JAGANNATH PRADHAN",
+        "username": "Jagannath",
+        "password": "@Jaga2004"
+    },
+    {
+        "name": "RAKESH KUMAR PRADHAN",
+        "username": "Rakesh",
+        "password": "@Rake2004"
+    },
+    {
+        "name": "STITIPRANGYA SAHOO",
+        "username": "Stitiprangya",
+        "password": "@Stit2004"
+    },
+    {
+        "name": "MANISHA SAHOO",
+        "username": "Manisha",
+        "password": "@Mani2001"
+    },
+    {
+        "name": "CHANDAN BEHERA",
+        "username": "Chandan",
+        "password": "@Chan2004"
+    },
+    {
+        "name": "SOURAV NANDA",
+        "username": "Sourav",
+        "password": "@Sour2003"
+    },
+    {
+        "name": "GEETANJALI PRADHAN",
+        "username": "Geetanjali",
+        "password": "@Geet1999"
+    },
+    {
+        "name": "SONALI PRIYADARSHINI ROUT",
+        "username": "Sonali",
+        "password": "@Sona2005"
+    },
+    {
+        "name": "BHAGYASHREE SAHOO",
+        "username": "Bhagyashree",
+        "password": "@Bhag2005"
+    },
+    {
+        "name": "ARPITA NAYAK",
+        "username": "Arpita",
+        "password": "@Arpi2001"
+    },
+    {
+        "name": "PRIYAMBADA PRADHAN",
+        "username": "Priyambada",
+        "password": "@Priy1992"
+    },
+    {
+        "name": "SWARNAPRIYA DAS",
+        "username": "Swarnapriya",
+        "password": "@Swar2004"
+    },
+    {
+        "name": "DEBI PRASAD BARIK",
+        "username": "Debi",
+        "password": "@Debi1999"
+    },
+    {
+        "name": "PINKINA SAHOO",
+        "username": "Pinkina",
+        "password": "@Pink2000"
+    },
+    {
+        "name": "SRABANI BAR",
+        "username": "Srabani",
+        "password": "@Srab2002"
+    },
+    {
+        "name": "SUCHARITA SAHOO",
+        "username": "Sucharita",
+        "password": "@Such2000"
+    },
+    {
+        "name": "MAHEFUJ KHAN",
+        "username": "Mahefuj",
+        "password": "@Mahe2002"
+    },
+    {
+        "name": "SWATIPUSPA BEHERA",
+        "username": "Swatipuspa",
+        "password": "@Swat1999"
+    },
+    {
+        "name": "SUCHISMITA PATRA",
+        "username": "Suchismita",
+        "password": "@Such2000"
+    },
+    {
+        "name": "SUBHASHREE JENA",
+        "username": "Subhashree",
+        "password": "@Subh2004"
+    },
+    {
+        "name": "CHINMAYA PRUSTY",
+        "username": "Chinmaya",
+        "password": "@Chin2001"
+    },
+    {
+        "name": "BINOD BARIK",
+        "username": "Binod",
+        "password": "@Bino2003"
+    },
+    {
+        "name": "SIBANI SUBHADARSHINI",
+        "username": "Sibani",
+        "password": "@Siba2003"
+    },
+    {
+        "name": "SUNIL HATI",
+        "username": "Sunil",
+        "password": "@Suni2004"
+    },
+    {
+        "name": "ALOK JENA",
+        "username": "Alok",
+        "password": "@Alok2005"
+    },
+    {
+        "name": "JHANSI BISOI",
+        "username": "Jhansi",
+        "password": "@Jhan2002"
+    }
+];
 const alert = document.querySelector(".alert");
 function checkCredentials() {
     var username = document.getElementById("login-username").value.trim();
