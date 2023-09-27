@@ -1664,6 +1664,7 @@ const note_link = {
     photoshop: "https://drive.google.com/file/d/1LhI5L20oY_o7ukTYx7fUneSIUhzUCSmG/preview",
     pagemaker: "https://drive.google.com/file/d/1Ekrs72RFYIMC6caf03yvKUz64ggMeLc4/preview",
     html: "https://drive.google.com/file/d/1RLoJm8_fBc526CmRSA4ndUf-XyS68-6E/preview",
+    css:"https://drive.google.com/file/d/12pQ2fv5BtPy9vrFYnJwcBccduyfSJClu/preview",
     word_old: "https://drive.google.com/file/d/1u5oXkCdtSLytfsNhYWUmW4RYrf04EuLa/preview",
     excel_old: "https://drive.google.com/file/d/1UXgGQvJpfrHKqBX6RzpMT6uX46prlMQs/preview",
     cmd: "https://drive.google.com/file/d/1NhRRVy8Ocho_zQgeZBwRU5qUgWUnkz27/preview"
@@ -1678,6 +1679,7 @@ const access = document.getElementById('access')
 const photoshop = document.getElementById('photoshop')
 const pagemaker = document.getElementById('pagemaker')
 const html = document.getElementById('html')
+const css = document.getElementById('css')
 const word_old = document.getElementById('word_old')
 const excel_old = document.getElementById('excel_old')
 const cmd = document.getElementById('cmd')
@@ -1691,6 +1693,7 @@ access.setAttribute("onclick", "openSecondWebpage(note_link.access)");
 photoshop.setAttribute("onclick", "openSecondWebpage(note_link.photoshop)");
 pagemaker.setAttribute("onclick", "openSecondWebpage(note_link.pagemaker)");
 html.setAttribute("onclick", "openSecondWebpage(note_link.html)");
+css.setAttribute("onclick", "openSecondWebpage(note_link.css)");
 word_old.setAttribute("onclick", "openSecondWebpage(note_link.word_old)");
 excel_old.setAttribute("onclick", "openSecondWebpage(note_link.excel_old)");
 cmd.setAttribute("onclick", "openSecondWebpage(note_link.cmd)");
