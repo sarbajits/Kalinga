@@ -1576,7 +1576,7 @@ var users = [
     },
 
     //New Branch
-    
+
         {
             "name": "ROMYARANJAN DAS",
             "username": "Romyaranjan",
@@ -1930,6 +1930,7 @@ const note_link = {
     powerpoint: "https://drive.google.com/file/d/1UdOOuR3EFuYn_IrQV1e2phWAz5KkRUup/preview",
     access: "https://drive.google.com/file/d/1OwGClN3aTCJqZoPYW9jFlslTb6bIiOcK/preview",
     photoshop: "https://drive.google.com/file/d/1LhI5L20oY_o7ukTYx7fUneSIUhzUCSmG/preview",
+    ps1:"https://drive.google.com/file/d/1HOueHs8DZSjAJJzrOo3Uw13MotQ3WU09/preview",
     pagemaker: "https://drive.google.com/file/d/1Ekrs72RFYIMC6caf03yvKUz64ggMeLc4/preview",
     html: "https://drive.google.com/file/d/1RLoJm8_fBc526CmRSA4ndUf-XyS68-6E/preview",
     css:"https://drive.google.com/file/d/12pQ2fv5BtPy9vrFYnJwcBccduyfSJClu/preview",
@@ -1945,6 +1946,7 @@ const excel = document.getElementById('excel')
 const powerpoint = document.getElementById('powerpoint')
 const access = document.getElementById('access')
 const photoshop = document.getElementById('photoshop')
+const ps1 = document.getElementById('ps1')
 const pagemaker = document.getElementById('pagemaker')
 const html = document.getElementById('html')
 const css = document.getElementById('css')
@@ -1959,6 +1961,7 @@ excel.setAttribute("onclick", "openSecondWebpage(note_link.excel)");
 powerpoint.setAttribute("onclick", "openSecondWebpage(note_link.powerpoint)");
 access.setAttribute("onclick", "openSecondWebpage(note_link.access)");
 photoshop.setAttribute("onclick", "openSecondWebpage(note_link.photoshop)");
+ps1.setAttribute("onclick", "openSecondWebpage(note_link.ps1)");
 pagemaker.setAttribute("onclick", "openSecondWebpage(note_link.pagemaker)");
 html.setAttribute("onclick", "openSecondWebpage(note_link.html)");
 css.setAttribute("onclick", "openSecondWebpage(note_link.css)");
