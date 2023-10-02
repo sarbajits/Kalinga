@@ -3,8 +3,8 @@ const studentsData = [
   { image: '/images/toppers/st2.jpg', name: 'Ashis' },
   { image: '/images/toppers/st3.jpg', name: 'Rashmiranjan' },
   { image: '/images/toppers/st4.jpg', name: 'Kanhu' },
-  { image: '/images/toppers/st5.jpg', name: 'Ipsita' },
-  { image: '/images/toppers/st6.jpg', name: 'Chinmayee' }
+  { image: '/images/toppers/st5.jpg', name: 'D M' },
+  { image: '/images/toppers/st6.jpg', name: 'Soumya' }
 ];
 
 const topperSection = document.getElementById('topper-section');

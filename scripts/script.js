@@ -1936,7 +1936,8 @@ const note_link = {
     css:"https://drive.google.com/file/d/12pQ2fv5BtPy9vrFYnJwcBccduyfSJClu/preview",
     word_old: "https://drive.google.com/file/d/1u5oXkCdtSLytfsNhYWUmW4RYrf04EuLa/preview",
     excel_old: "https://drive.google.com/file/d/1UXgGQvJpfrHKqBX6RzpMT6uX46prlMQs/preview",
-    cmd: "https://drive.google.com/file/d/1NhRRVy8Ocho_zQgeZBwRU5qUgWUnkz27/preview"
+    cmd: "https://drive.google.com/file/d/1NhRRVy8Ocho_zQgeZBwRU5qUgWUnkz27/preview",
+    acc:"https://drive.google.com/file/d/1FOe2Xp1PHT5bm-cQnfM1d1nsr5ls8_Vu/preview"
 }
 
 const fundamental = document.getElementById('fundamental')
@@ -1953,6 +1954,7 @@ const css = document.getElementById('css')
 const word_old = document.getElementById('word_old')
 const excel_old = document.getElementById('excel_old')
 const cmd = document.getElementById('cmd')
+const acc = document.getElementById('acc')
 
 fundamental.setAttribute("onclick", "openSecondWebpage(note_link.fundamental)");
 win7.setAttribute("onclick", "openSecondWebpage(note_link.win7)");
@@ -1968,3 +1970,4 @@ css.setAttribute("onclick", "openSecondWebpage(note_link.css)");
 word_old.setAttribute("onclick", "openSecondWebpage(note_link.word_old)");
 excel_old.setAttribute("onclick", "openSecondWebpage(note_link.excel_old)");
 cmd.setAttribute("onclick", "openSecondWebpage(note_link.cmd)");
+acc.setAttribute("onclick", "openSecondWebpage(note_link.acc)");
