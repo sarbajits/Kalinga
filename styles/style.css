@@ -296,16 +296,19 @@ footer {
 #closeButton:hover {
     background-color: #ff1900;
 }
+
 #closeButton:active {
     background-color: #ff1900;
 }
-.gallery{
+
+.gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding-top: 10px;
     padding-bottom: 50px;
 }
+
 .gallery img {
     max-width: 48%;
     margin-bottom: 10px;
@@ -313,7 +316,7 @@ footer {
     /* margin: 10px; */
 }
 
-.new{
+.new {
     margin-top: 10px;
     padding: 10px;
     font-size: 20px;
@@ -325,14 +328,48 @@ footer {
     border-radius: 6px;
 }
 
-.new p{
+.new p {
     font-size: 25px;
 }
-h4{
+
+h4 {
     font-size: 20px;
     color: white;
     background-color: red;
     box-shadow: 2px 2px 5px black;
     text-align: center;
     margin-top: 10px;
+}
+
+#topperCarousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    border: 4px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px;
+    width: 94vw;
+    justify-content: space-around;
+}
+
+.card img {
+    width: 100px;
+    /* height: 100px; */
+    border-radius: 6px;
+    border: 5px solid red;
+}
+
+.info p {
+    color: red;
+    background-color: #fff;
+    font-weight: 800;
+    margin: 5px 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
 }

@@ -1,57 +1,57 @@
-const studentsData = [
-  { image: '/images/toppers/st1.jpg', name: 'Sadhu' },
-  { image: '/images/toppers/st2.jpg', name: 'Ashis' },
-  { image: '/images/toppers/st3.jpg', name: 'Rashmiranjan' },
-  { image: '/images/toppers/st4.jpg', name: 'Kanhu' },
-  { image: '/images/toppers/st5.jpg', name: 'D M' },
-  { image: '/images/toppers/st6.jpg', name: 'Soumya' }
-];
+// const studentsData = [
+//   { image: '/images/toppers/st1.jpg', name: 'Sadhu' },
+//   { image: '/images/toppers/st2.jpg', name: 'Ashis' },
+//   { image: '/images/toppers/st3.jpg', name: 'Rashmiranjan' },
+//   { image: '/images/toppers/st4.jpg', name: 'Kanhu' },
+//   { image: '/images/toppers/st5.jpg', name: 'D M' },
+//   { image: '/images/toppers/st6.jpg', name: 'Soumya' }
+// ];
 
-const topperSection = document.getElementById('topper-section');
+// const topperSection = document.getElementById('topper-section');
 
-let currentIndex = 0;
+// let currentIndex = 0;
 
-function preloadImages() {
-  studentsData.forEach(student => {
-    const img = new Image();
-    img.src = student.image;
-  });
-}
+// function preloadImages() {
+//   studentsData.forEach(student => {
+//     const img = new Image();
+//     img.src = student.image;
+//   });
+// }
 
-function updateStudents() {
-  topperSection.innerHTML = '';
+// function updateStudents() {
+//   topperSection.innerHTML = '';
 
-  for (let i = currentIndex; i < currentIndex + 3; i++) {
-    const student = studentsData[i % studentsData.length];
-    const studentDiv = document.createElement('div');
-    studentDiv.classList.add('student');
+//   for (let i = currentIndex; i < currentIndex + 3; i++) {
+//     const student = studentsData[i % studentsData.length];
+//     const studentDiv = document.createElement('div');
+//     studentDiv.classList.add('student');
 
-    const image = document.createElement('img');
-    image.src = student.image;
-    image.alt = student.name;
-    image.classList.add('circle-image');
+//     const image = document.createElement('img');
+//     image.src = student.image;
+//     image.alt = student.name;
+//     image.classList.add('circle-image');
 
-    const nameDiv = document.createElement('div');
-    nameDiv.textContent = student.name;
-    nameDiv.classList.add('student-name', 'blink');
+//     const nameDiv = document.createElement('div');
+//     nameDiv.textContent = student.name;
+//     nameDiv.classList.add('student-name', 'blink');
 
-    studentDiv.appendChild(image);
-    studentDiv.appendChild(nameDiv);
+//     studentDiv.appendChild(image);
+//     studentDiv.appendChild(nameDiv);
 
-    topperSection.appendChild(studentDiv);
-  }
-}
+//     topperSection.appendChild(studentDiv);
+//   }
+// }
 
-function rotateStudents() {
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % studentsData.length;
-    updateStudents();
-  }, 2000);
-}
+// function rotateStudents() {
+//   setInterval(() => {
+//     currentIndex = (currentIndex + 1) % studentsData.length;
+//     updateStudents();
+//   }, 2000);
+// }
 
-preloadImages();  // Preload images before starting rotation
-updateStudents();
-rotateStudents();
+// preloadImages();  // Preload images before starting rotation
+// updateStudents();
+// rotateStudents();
 
 let slideIndex = 0;
 showSlides();
@@ -115,3 +115,22 @@ function closeFloatingDiv() {
 
 // Show the floating div initially
 document.addEventListener('DOMContentLoaded', showFloatingDiv);
+
+const toppers = document.querySelectorAll('.card');
+let index = 0;
+
+function displayNextTopper() {
+  toppers.forEach((topper) => {
+    topper.style.display = 'none';
+  });
+
+  index = (index + 1) % toppers.length;
+  toppers[index].style.display = 'flex';
+}
+
+function rotateToppers() {
+  displayNextTopper();
+  setTimeout(rotateToppers, 2000); // Rotate every 2 seconds
+}
+
+rotateToppers(); // Start the rotation
