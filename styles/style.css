@@ -16,23 +16,27 @@ body {
 
 nav {
     height: 60px;
-    width: 100%;
-    background: red;
+    width: 95%;
+    color: red;
+    background: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     z-index: 10;
     padding: 5px;
+    margin: 5px;
+    border-radius: 6px;
 }
 
 nav img {
     margin-right: 10px;
 }
 
-nav h1:hover {
-    scale: 1.01;
+nav object{
+    margin-right: 20px;
 }
+
 
 .hidden-nav {
     transform: translateY(-100%);
@@ -50,7 +54,7 @@ body.nav-hidden .main {
     align-items: center;
     padding: 10px;
     position: relative;
-    top: 50px;
+    top: 60px;
     background-color: #212121;
 }
 
