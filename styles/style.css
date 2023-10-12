@@ -396,7 +396,7 @@ h4 {
     width: 60vw;
 }
 .info p {
-    color: limegreen;
+    color: black;
     background-color: rgb(255, 255, 255);
     filter: drop-shadow(2px 2px 2px limegreen);
     font-weight: 800;
