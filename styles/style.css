@@ -123,7 +123,7 @@ body.nav-hidden .main {
 .note-section {
     height: fit-content;
     width: 95vw;
-    background-color: rgb(255, 76, 76);
+    background-color: greenyellow;
     display: flex;
     flex-direction: column;
     align-items: center;
