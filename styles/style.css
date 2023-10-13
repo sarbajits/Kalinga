@@ -8,7 +8,7 @@
 
 body {
     color: white;
-    background: #212121;
+    background: white;
     /* display: flex;
     justify-content: center;
     align-content: center; */
@@ -62,7 +62,7 @@ body.nav-hidden .main {
     padding: 10px;
     position: relative;
     top: 70px;
-    background-color: #212121;
+    background-color: white;
 }
 
 .main h3 {
