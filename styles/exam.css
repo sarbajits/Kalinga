@@ -58,7 +58,7 @@ iframe {
     user-select: none;
     background: linear-gradient(to left, rgb(255, 186, 186), white, rgb(255, 255, 255), white, rgb(255, 186, 186));
     position: relative;
-    top: 60px;
+    top: 80px;
     width: 100%;
     height: 100vh;
     overflow: hidden;

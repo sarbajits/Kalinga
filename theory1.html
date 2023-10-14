@@ -4,47 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        iframe {
-            user-select: none;
-            background: linear-gradient(to left, rgb(255, 186, 186), white, rgb(255, 255, 255), white, rgb(255, 186, 186));
-            position: relative;
-            top: 60px;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-    </style>
+
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/exam.css">
     <title>Examination</title>
 </head>
 
 <body>
     <nav>
-        <img src="https://gcdnb.pbrd.co/images/yQskNDb63pK1.jpg" alt="Logo" height="50px">
-        <h1>Kalinga Computer Education </h1>
+        <div class="nav">
+            <object data="images/logo.svg" height="50px"></object>
+            <div>
+                <h2>Kalinga Computer Education</h2>
+                <h5>Athagarh, Cuttack,754029</h5>
+            </div>
+        </div>
     </nav>
-    <!-- <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSe6yP7UZ3n3_w_3WpF_PAKqMBOwicv0j-TKfg2oKWqtrHGggA/viewform?embedded=true"
-        frameborder="0" marginheight="0" marginwidth="0" id="form_google">Loading…</iframe> -->
 
-    <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSegR4rTIZG19rF7BIvbu60MiGo0XAZC2mVMhQku8weP3cYS3w/viewform?embedded=true"
-        frameborder="0" marginheight="0" marginwidth="0" id="form_google">Loading…</iframe>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Exam Locked</h2>
+            <h3>Contact your examiner</h3>
+            <input type="password" id="passwordInput" placeholder="Enter Password"><br>
+
+            <button onclick="checkPasswordAndRemoveOverlay()" id="unlock">Unlock</button><br>
+
+            <button onclick="checkPasswordAndRefresh()" id="unlock_refresh">Unlock & Refresh</button>
+        </div>
+    </div>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScExLiMF4GI4KfYYEyh8UD_fYCtu5iWwAf56-xVtkiaOR6IBQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
     <script src="/scripts/script.js"></script>
-    <script>
-        var iframe = document.getElementById('form_google');
+    <script src="/scripts/lock.js"></script>
 
-        function reloadIframe() {
-            iframe.src = iframe.src;  // Reload the iframe
-        }
-        document.addEventListener('visibilitychange', function () {
-            if (document.hidden) {
-                reloadIframe();
-            }
-        });
-    </script>
 </body>
 
 </html>

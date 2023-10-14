@@ -15,9 +15,9 @@ body {
 
 .container {
     height: fit-content;
-    padding: 40px;
+    padding: 20px;
     background-color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid limegreen;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
@@ -48,12 +48,12 @@ input {
 }
 input:focus{
     border: 2px solid #ffffff;
-    outline: 2px solid #ff0000;
+    outline: 2px solid limegreen;
 }
 button {
     width:70vw;
     padding: 10px;
-    background-color: #ff0000;
+    background-color: limegreen;
     color: white;
     border: none;
     border-radius: 5px;

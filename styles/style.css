@@ -24,26 +24,22 @@ nav {
     z-index: 10;
 }
 nav .nav{
+    border: 2px solid limegreen;
     height: fit-content;
     width: 100%;
     display: flex;
-    color: red;
+    color: limegreen;
     background: rgb(255, 255, 255);
     margin: 5px;
-    padding: 5px;
+    padding: 2px;
     border-radius: 6px;
-}
-.nav span{
-    font-size: small;
-}
-nav img {
-    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 nav object{
-    margin-right: 20px;
+    margin-right: 10px;
 }
-
 
 .hidden-nav {
     transform: translateY(-100%);
@@ -61,7 +57,7 @@ body.nav-hidden .main {
     align-items: center;
     padding: 10px;
     position: relative;
-    top: 70px;
+    top: 80px;
     background-color: white;
 }
 
@@ -283,7 +279,7 @@ footer {
     font-size: larger;
     color: white;
     text-decoration: none;
-    background-color: red;
+    background-color: limegreen;
     border-radius: 4px;
     padding: 4px 10px;
 }

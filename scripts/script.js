@@ -1908,7 +1908,7 @@ function exam() {
     window.open("/exam.html", "_self");
 }
 function theory1() {
-    window.open("/theory_new.html", "_self");
+    window.open("/theory1.html", "_self");
 }
 
 function practical1() {
