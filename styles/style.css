@@ -38,6 +38,8 @@ nav .nav{
 }
 
 nav object{
+    height="50px";
+    width="56px";
     margin-right: 10px;
 }
 
