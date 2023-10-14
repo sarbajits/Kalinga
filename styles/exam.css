@@ -1,4 +1,4 @@
-body,
+,
 html {
     height: 100%;
     margin: 0;
@@ -62,11 +62,4 @@ iframe {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-}
-iframe {
-  pointer-events: auto; /* Allow interaction with the iframe */
-}
-
-iframe body {
-  user-select: none; /* Prevent text selection within the iframe content */
 }
