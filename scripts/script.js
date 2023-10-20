@@ -1841,6 +1841,12 @@ var users = [
             "name": "SAMARENDRA NAYAK",
             "username": "Samarendra",
             "password": "@Sama2003"
+        },
+        //Adding New indivisual
+        {
+            "name": "SANGEETA BEHERA",
+            "username": "Sangeeta",
+            "password": "@Sang2002"
         }
 ];
 const alert = document.querySelector(".alert");
