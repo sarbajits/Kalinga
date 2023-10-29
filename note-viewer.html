@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Notes</title>
+    <title>Note Viewer</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
         integrity="sha512-q+4liFwdPC/bNdhUpZx6aXDx/h77yEQtn4I1slHydcbZK34nLaR3cAeYSJshoxIOq3mjEf7xJE8YWIUHMn+oCQ=="
@@ -12,7 +12,6 @@
     <style>
         /* Custom styles */
         #allPagesContainer {
-            width: 95vw;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -20,7 +19,6 @@
         }
 
         .pdfPage {
-            width: 100%;
             border: 1px solid #ddd;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -30,15 +28,32 @@
             /* Hide overflowing content */
         }
 
-        .pdfPage canvas {
+        .pdfPage img {
             max-width: 100%;
             max-height: 100%;
+            image-rendering: pixelated;
+            /* Maintain image quality */
         }
     </style>
 
     <script>
         const pdfjsLib = window['pdfjs-dist/build/pdf'];
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        function renderPageThumbnail(page, scale, quality = 1.5) {
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+
+            return page.render(renderContext).then(() => canvas.toDataURL('image/jpeg', quality));
+        }
 
         function loadPDF(pdfName) {
             const pdfUrl = `/notes/${pdfName}.pdf`; // Replace with the path to your PDF files
@@ -49,26 +64,15 @@
 
                 for (let i = 1; i <= pdf.numPages; i++) {
                     pdf.getPage(i).then((page) => {
-                        const scale = 1.5; // Adjust scale as needed
-                        const viewport = page.getViewport({ scale });
+                        renderPageThumbnail(page, 1.5, 1.5).then((dataUrl) => {
+                            const div = document.createElement('div');
+                            div.className = 'pdfPage';
 
-                        const div = document.createElement('div');
-                        div.className = 'pdfPage';
-
-                        const canvas = document.createElement('canvas');
-                        div.appendChild(canvas);
-                        allPagesContainer.appendChild(div);
-
-                        const context = canvas.getContext('2d');
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-
-                        page.render(renderContext);
+                            const img = document.createElement('img');
+                            img.src = dataUrl;
+                            div.appendChild(img);
+                            allPagesContainer.appendChild(div);
+                        });
                     });
                 }
             }).catch((error) => {
@@ -90,7 +94,7 @@
 
 <body>
     <div id="allPagesContainer">
-        <!-- All PDF pages will be rendered here -->
+        <!-- All PDF page thumbnails will be rendered here -->
     </div>
 </body>
 
