@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
+
+  <title>Kalinga Computer Education</title>
+
+</head>
+
+<body>
+  <nav>
+    <div class="nav">
+      <object data="images/logo.svg" height="50px"></object>
+      <div>
+        <h2>Kalinga Computer Education</h2>
+        <h5>Athagarh, Cuttack,754029</h5>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+
+    <div class="note-section">
+      <h2>Notes Section</h2>
+
+      <div class="note" id="fundamental">
+        <img src="/images/th/fundamental.jpg" alt="Fundamental">
+        <h3>Fundamental Note</h3>
+      </div>
+
+      <div class="note" id="os">
+        <img src="/images/th/os.jpg" alt="Windows 7">
+        <h3>Windows 7 Note Note</h3>
+      </div>
+
+      <div class="note" id="word">
+        <img src="/images/th/word.jpg" alt="Word">
+        <h3>Word Note</h3>
+      </div>
+
+      <div class="note" id="excel">
+        <img src="/images/th/excel.jpg" alt="Excel">
+        <h3>Excel Note</h3>
+      </div>
+
+      <div class="note" id="powerpoint">
+        <img src="/images/th/powerpoint.jpg" alt="Powerpoint">
+        <h3>Powerpoint Note</h3>
+      </div>
+
+      <div class="note" id="access">
+        <img src="/images/th/access.jpg" alt="Access">
+        <h3>Access Note</h3>
+      </div>
+
+      <div class="note" id="photoshop">
+        <img src="/images/th/photoshop.jpg" alt="Photoshop">
+        <h3>Photoshop Note-1</h3>
+      </div>
+
+      <div class="note" id="ps1">
+        <img src="/images/th/photoshop.jpg" alt="ps1">
+        <h3>Photoshop Note-2</h3>
+      </div>
+
+      <div class="note" id="pagemaker">
+        <img src="/images/th/pagemaker.jpg" alt="Pagemaker">
+        <h3>Pagemaker Note</h3>
+      </div>
+
+      <div class="note" id="html">
+        <img src="/images/th/html.jpg" alt="HTML">
+        <h3>HTML Note</h3>
+      </div>
+
+      <div class="note" id="css">
+        <img src="/images/th/css.jpg" alt="CSS">
+        <h3>CSS Note</h3>
+      </div>
+
+      <div class="note" id="word_old">
+        <img src="/images/th/word.jpg" alt="Word Old Note">
+        <h3>Word Old Note</h3>
+      </div>
+
+      <div class="note" id="excel_old">
+        <img src="/images/th/excel.jpg" alt="Excel Old Note">
+        <h3>Excel Old Note</h3>
+      </div>
+
+      <div class="note" id="cmd">
+        <img src="/images/th/cmd.jpg" alt="Command Prompt">
+        <h3>Command Prompt Note</h3>
+      </div>
+
+      <div class="note" id="acc">
+        <img src="/images/th/accounting.jpg" alt="Accounting">
+        <h3>Accounting Note</h3>
+      </div>
+
+      <div class="note" id="cpro">
+        <img src="/images/th/c.jpg" alt="C Programming">
+        <h3>C Programming Note</h3>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const noteDivs = document.querySelectorAll('.note');
+
+      noteDivs.forEach(note => {
+        note.addEventListener('click', function () {
+          const noteId = this.getAttribute('id');
+          window.location.href = `pdf-viewer.html?note=${noteId}`;
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

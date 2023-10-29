@@ -1858,7 +1858,7 @@ function checkCredentials() {
         if (username === users[i].username && password === users[i].password) {
             // alert("Login successful!");
             alert.innerHTML = "Loading....";
-            window.open("/home.html", "_self");
+            window.open("/home2.html", "_self");
             return;
         }
     }
