@@ -3,11 +3,33 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>PDF Viewer</title>
-
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script> -->
+  <title>Notes</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha512-q+4liFwdPC/bNdhUpZx6aXDx/h77yEQtn4I1slHydcbZK34nLaR3cAeYSJshoxIOq3mjEf7xJE8YWIUHMn+oCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    /* Custom styles */
+    #allPagesContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .pdfPage {
+      border: 1px solid #ddd;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden; /* Hide overflowing content */
+    }
+
+    .pdfPage canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
 
   <script>
     const pdfjsLib = window['pdfjs-dist/build/pdf'];
@@ -18,21 +40,32 @@
       const loadingTask = pdfjsLib.getDocument(pdfUrl);
 
       loadingTask.promise.then((pdf) => {
-        pdf.getPage(1).then((page) => {
-          const scale = 1.5; // Adjust scale as needed
-          const viewport = page.getViewport({ scale });
-          const canvas = document.getElementById('pdfRenderer');
-          const context = canvas.getContext('2d');
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
+        const allPagesContainer = document.getElementById('allPagesContainer');
 
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-          };
+        for (let i = 1; i <= pdf.numPages; i++) {
+          pdf.getPage(i).then((page) => {
+            const scale = 1.0; // Adjust scale as needed
+            const viewport = page.getViewport({ scale });
 
-          page.render(renderContext);
-        });
+            const div = document.createElement('div');
+            div.className = 'pdfPage';
+
+            const canvas = document.createElement('canvas');
+            div.appendChild(canvas);
+            allPagesContainer.appendChild(div);
+
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+              canvasContext: context,
+              viewport: viewport
+            };
+
+            page.render(renderContext);
+          });
+        }
       }).catch((error) => {
         console.error('Error loading PDF:', error);
       });
@@ -51,8 +84,9 @@
 </head>
 
 <body>
-  <h1>PDF Viewer</h1>
-  <canvas id="pdfRenderer"></canvas>
+  <div id="allPagesContainer">
+    <!-- All PDF pages will be rendered here -->
+  </div>
 </body>
 
 </html>
