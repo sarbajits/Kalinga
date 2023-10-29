@@ -40,7 +40,7 @@
         const pdfjsLib = window['pdfjs-dist/build/pdf'];
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-        function renderPageThumbnail(page, scale, quality = 1.5) {
+        function renderPageThumbnail(page, scale, quality = 1) {
             const viewport = page.getViewport({ scale });
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
@@ -64,7 +64,7 @@
 
                 for (let i = 1; i <= pdf.numPages; i++) {
                     pdf.getPage(i).then((page) => {
-                        renderPageThumbnail(page, 1.5, 1.5).then((dataUrl) => {
+                        renderPageThumbnail(page, 1.0, 1.0).then((dataUrl) => {
                             const div = document.createElement('div');
                             div.className = 'pdfPage';
 
