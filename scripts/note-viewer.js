@@ -1,3 +1,10 @@
+window.addEventListener('load', function () {
+    setTimeout(function () {
+        document.querySelector('.loading-screen').style.display = 'none';
+    }, 4000); // Hides the loading screen after 4 seconds (4000 milliseconds)
+});
+
+
 const pdfjsLib = window['pdfjs-dist/build/pdf'];
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
