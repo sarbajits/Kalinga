@@ -3,99 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Note Viewer</title>
+    <title>Notes Viewer</title>
+    <link rel="stylesheet" href="/styles/note-viewer.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
         integrity="sha512-q+4liFwdPC/bNdhUpZx6aXDx/h77yEQtn4I1slHydcbZK34nLaR3cAeYSJshoxIOq3mjEf7xJE8YWIUHMn+oCQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <style>
-        /* Custom styles */
-        #allPagesContainer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-        }
-
-        .pdfPage {
-            border: 1px solid #ddd;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            /* Hide overflowing content */
-        }
-
-        .pdfPage img {
-            max-width: 100%;
-            max-height: 100%;
-            image-rendering: pixelated;
-            /* Maintain image quality */
-        }
-    </style>
-
-    <script>
-        const pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-        function renderPageThumbnail(page, scale, quality = 1) {
-            const viewport = page.getViewport({ scale });
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
-            const renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
-
-            return page.render(renderContext).then(() => canvas.toDataURL('image/jpeg', quality));
-        }
-
-        function loadPDF(pdfName) {
-            const pdfUrl = `/notes/${pdfName}.pdf`; // Replace with the path to your PDF files
-            const loadingTask = pdfjsLib.getDocument(pdfUrl);
-
-            loadingTask.promise.then((pdf) => {
-                const allPagesContainer = document.getElementById('allPagesContainer');
-
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    pdf.getPage(i).then((page) => {
-                        renderPageThumbnail(page, 1.0, 1.0).then((dataUrl) => {
-                            const div = document.createElement('div');
-                            div.className = 'pdfPage';
-
-                            const img = document.createElement('img');
-                            img.src = dataUrl;
-                            div.appendChild(img);
-                            allPagesContainer.appendChild(div);
-                        });
-                    });
-                }
-            }).catch((error) => {
-                console.error('Error loading PDF:', error);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const note = params.get('note');
-            if (note) {
-                loadPDF(note);
-            } else {
-                // Handle cases where no note is specified
-            }
-        });
-    </script>
+        <script src="/scripts/note-viewer.js"></script>
+        
 </head>
 
 <body>
-    <div id="allPagesContainer">
-        <!-- All PDF page thumbnails will be rendered here -->
-    </div>
+    <div class="pdf">
+        <div class="pdf-header">
+            <h2>Kalinga Computer Education</h2>
+            <h5>Athagarh, Cuttack,754029</h5>
+        </div>
+
+        <div id="allPagesContainer">
+            <!-- All PDF pages will be rendered here -->
+        </div>
 </body>
 
 </html>
