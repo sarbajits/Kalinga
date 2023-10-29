@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
     setTimeout(function () {
         document.querySelector('.loading-screen').style.display = 'none';
-    }, 4000); // Hides the loading screen after 4 seconds (4000 milliseconds)
+    }, 2000); 
 });
 
 
