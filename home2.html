@@ -30,14 +30,12 @@
       <h2>Notes Section</h2>
 
       <div class="note" id="fundamental">
-        <img src="/images/th/fundamental.jpg"
-          alt="Fundamental">
+        <img src="/images/th/fundamental.jpg" alt="Fundamental">
         <h3>Fundamental Note</h3>
       </div>
 
       <div class="note" id="win7">
-        <img src="/images/th/os.jpg"
-          alt="Windows 7">
+        <img src="/images/th/os.jpg" alt="Windows 7">
         <h3>Windows 7 Note Note</h3>
       </div>
 
@@ -47,16 +45,12 @@
       </div>
 
       <div class="note" id="excel">
-        <img
-          src="/images/th/excel.jpg"
-          alt="Excel">
+        <img src="/images/th/excel.jpg" alt="Excel">
         <h3>Excel Note</h3>
       </div>
 
       <div class="note" id="powerpoint">
-        <img
-          src="/images/th/powerpoint.jpg"
-          alt="Powerpoint">
+        <img src="/images/th/powerpoint.jpg" alt="Powerpoint">
         <h3>Powerpoint Note</h3>
       </div>
 
@@ -66,8 +60,7 @@
       </div>
 
       <div class="note" id="photoshop">
-        <img src="/images/th/photoshop.jpg"
-          alt="Photoshop">
+        <img src="/images/th/photoshop.jpg" alt="Photoshop">
         <h3>Photoshop Note-1</h3>
       </div>
 
@@ -77,9 +70,7 @@
       </div>
 
       <div class="note" id="pagemaker">
-        <img
-          src="/images/th/pagemaker.jpg"
-          alt="Pagemaker">
+        <img src="/images/th/pagemaker.jpg" alt="Pagemaker">
         <h3>Pagemaker Note</h3>
       </div>
 
@@ -94,15 +85,12 @@
       </div>
 
       <div class="note" id="word_old">
-        <img src="/images/th/word.jpg"
-          alt="Word Old Note">
+        <img src="/images/th/word.jpg" alt="Word Old Note">
         <h3>Word Old Note</h3>
       </div>
 
       <div class="note" id="excel_old">
-        <img
-          src="/images/th/excel.jpg"
-          alt="Excel Old Note">
+        <img src="/images/th/excel.jpg" alt="Excel Old Note">
         <h3>Excel Old Note</h3>
       </div>
 
@@ -112,14 +100,12 @@
       </div>
 
       <div class="note" id="acc">
-        <img src="/images/th/accounting.jpg"
-          alt="Accounting">
+        <img src="/images/th/accounting.jpg" alt="Accounting">
         <h3>Accounting Note</h3>
       </div>
 
       <div class="note" id="cpro">
-        <img src="/images/th/c.jpg"
-          alt="C Programming">
+        <img src="/images/th/c.jpg" alt="C Programming">
         <h3>C Programming Note</h3>
       </div>
 
@@ -131,7 +117,7 @@
       const noteDivs = document.querySelectorAll('.note');
 
       noteDivs.forEach(note => {
-        note.addEventListener('click', function() {
+        note.addEventListener('click', function () {
           const noteId = this.getAttribute('id');
           window.location.href = `note-viewer.html?note=${noteId}`;
         });
