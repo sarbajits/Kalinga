@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
     setTimeout(function () {
         document.querySelector('.loading-screen').style.display = 'none';
-    }, 5000);
+    }, 100);
 });
 
 
@@ -53,3 +53,35 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle cases where no note is specified
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const note = params.get('note');
+
+    if (note) {
+        loadPDF(note);
+        addDownloadButtonListener(); // Call function to add download button event listener
+    } else {
+        // Handle cases where no note is specified
+    }
+});
+
+function addDownloadButtonListener() {
+    const downloadButton = document.getElementById('downloadButton');
+
+    downloadButton.addEventListener('click', () => {
+        const params = new URLSearchParams(window.location.search);
+        const note = params.get('note');
+
+        // Check if a note is present
+        if (note) {
+            const pdfUrl = `/notes/${note}.pdf`; // Get the URL of the current PDF
+
+            // Create an anchor element to trigger the download
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = note; // Set the default download file name
+            link.click();
+        }
+    });
+}

@@ -44,8 +44,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -61,15 +66,11 @@ body {
     line-height: 1px;
 }
 
-.pdf iframe{
+.pdf iframe {
     border: none;
 }
 
-@media (min-width: 500px) and (orientation: landscape) {
-    .pdf-header {
-        display: none;
-    }
-}
+
 
 /* Custom styles */
 #allPagesContainer {
@@ -94,4 +95,36 @@ body {
 .pdfPage canvas {
     max-width: 100%;
     max-height: 100%;
+}
+
+/* CSS to style the download button */
+#downloadButton {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    font-size: 50px;
+    border-radius: 6px;
+}
+
+#downloadButton:hover {
+    background-color: #45a049;
+}
+
+@media (min-width: 500px) and (orientation: landscape) {
+    .pdf-header {
+        display: none;
+    }
+
+    #downloadButton {
+        display: none;
+    }
 }

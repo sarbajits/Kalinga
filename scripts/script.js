@@ -1908,6 +1908,10 @@ function goBack() {
     window.history.back();
 }
 
+function note() {
+    window.open("/home2.html", "_self");
+}
+
 function login() {
     window.open("/login.html", "_self");
 }

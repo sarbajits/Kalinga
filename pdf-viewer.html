@@ -1,13 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes Viewer</title>
+    <title>PDF Viewer with Scroll and Search</title>
+    <style>
+        #pdfContainer {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #pdfViewer {
+            border: 1px solid black;
+        }
+    </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+integrity="sha512-q+4liFwdPC/bNdhUpZx6aXDx/h77yEQtn4I1slHydcbZK34nLaR3cAeYSJshoxIOq3mjEf7xJE8YWIUHMn+oCQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
-    <canvas id="pdf-canvas"></canvas>
-    <script src="/scripts/pdf.js"></script>
-    <script src="/scripts/pdf-viewer.js"></script>
+    <div id="pdfContainer">
+        <input type="text" id="searchInput" placeholder="Enter text to search">
+        <button onclick="searchInPDF()">Search</button>
+        <span>Page: <span id="pageNumber">1</span> of <span id="totalPages">1</span></span>
+        <div>
+            <canvas id="pdfViewer"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const url = '/notes/cpro.pdf';
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        const scale = 1.5;
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const pdfViewer = document.getElementById('pdfViewer');
+        const searchInput = document.getElementById('searchInput');
+        const pageNumberSpan = document.getElementById('pageNumber');
+        const totalPagesSpan = document.getElementById('totalPages');
+
+        // Function to load and render the PDF
+        function renderPage(num) {
+            pdfDoc.getPage(num).then(page => {
+                const viewport = page.getViewport({ scale });
+                const canvas = pdfViewer;
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+
+                page.render(renderContext);
+            });
+        }
+
+        // Function to search text in the PDF
+        function searchInPDF() {
+            const searchText = searchInput.value;
+            if (searchText) {
+                pdfDoc.getPage(pageNum).then(page => {
+                    page.getTextContent().then(content => {
+                        content.items.forEach(item => {
+                            if (item.str.includes(searchText)) {
+                                renderPage(pageNum); // Render the page
+                                // Highlight the searched text
+                                const rect = item.transform;
+                                const canvas = pdfViewer;
+                                const context = canvas.getContext('2d');
+                                context.beginPath();
+                                context.rect(rect[4], rect[5], rect[2], rect[3]);
+                                context.lineWidth = 1;
+                                context.strokeStyle = 'yellow';
+                                context.stroke();
+                            }
+                        });
+                    });
+                });
+            }
+        }
+
+        // Function to initialize the PDF viewer
+        pdfjsLib.getDocument(url).promise.then(doc => {
+            pdfDoc = doc;
+            totalPagesSpan.textContent = pdfDoc.numPages;
+
+            renderPage(pageNum); // Initial render of first page
+
+            // Update the page number display
+            pdfViewer.addEventListener('pagechange', e => {
+                pageNum = e.pageNumber;
+                pageNumberSpan.textContent = pageNum;
+            });
+        });
+    </script>
 </body>
 </html>
