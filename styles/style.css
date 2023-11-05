@@ -444,7 +444,7 @@ h4 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100px;
-    height: 89px;
+    height: 100px;
     /* Add your logo background or content here */
     background-image: url('/images/loading_1.png');
     background-size: cover;
