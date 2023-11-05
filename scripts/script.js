@@ -1,14 +1,21 @@
-window.addEventListener('load', function () {
-  const loader = document.querySelector('.loading-screen');
-  loader.style.display = 'none'; // Hide the loader once the page and its resources are fully loaded
-});
-
-
-window.addEventListener('beforeunload', function() {
+function loader(){
     const loader = document.querySelector('.loading-screen');
-  loader.style.display = 'none'; // Hide the loader once the page and its resources are fully loaded
+    loader.style.display = 'none';
+}
+
+window.addEventListener('load', function () {
+    loader();
 });
 
+window.addEventListener('progress',
+function(){
+    loader();
+});
+
+window.addEventListener('progress',
+function(){
+    loader();
+});
 
 var users = [
     { username: "admin", password: "kce@2006", name: "Kalinga Computer" },
