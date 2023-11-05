@@ -3,6 +3,13 @@ window.addEventListener('load', function () {
   loader.style.display = 'none'; // Hide the loader once the page and its resources are fully loaded
 });
 
+
+window.addEventListener('beforeunload', function() {
+    const loader = document.querySelector('.loading-screen');
+  loader.style.display = 'none'; // Hide the loader once the page and its resources are fully loaded
+});
+
+
 var users = [
     { username: "admin", password: "kce@2006", name: "Kalinga Computer" },
     { username: "staff", password: "kalinga", name: "Kalinga Staff" },
