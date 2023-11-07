@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const note = params.get('note');
 
     if (note) {
-        loadPDF(note);
         addDownloadButtonListener(); // Call function to add download button event listener
     } else {
         // Handle cases where no note is specified
