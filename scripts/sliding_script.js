@@ -113,24 +113,76 @@ function closeFloatingDiv() {
   floatingDiv.style.display = 'none';
 }
 
-// Show the floating div initially
-document.addEventListener('DOMContentLoaded', showFloatingDiv);
+// // Show the floating div initially
+// document.addEventListener('DOMContentLoaded', showFloatingDiv);
 
-const toppers = document.querySelectorAll('.card');
-let index = 0;
+// const toppers = document.querySelectorAll('.card');
+// let index = 0;
 
-function displayNextTopper() {
-  toppers.forEach((topper) => {
-    topper.style.display = 'none';
+// function displayNextTopper() {
+//   toppers.forEach((topper) => {
+//     topper.style.display = 'none';
+//   });
+
+//   index = (index + 1) % toppers.length;
+//   toppers[index].style.display = 'flex';
+// }
+
+// function rotateToppers() {
+//   displayNextTopper();
+//   setTimeout(rotateToppers, 2000); // Rotate every 2 seconds
+// }
+
+// rotateToppers(); // Start the rotation
+
+function displayToppers(toppers) {
+  const toppersContainer = document.querySelector('.topperCarousel');
+  let currentIndex = 0;
+
+  function showTopper(index) {
+    const topper = toppers[index];
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const img = document.createElement('img');
+    img.src = topper.photoUrl;
+    img.alt = topper.name;
+    card.appendChild(img);
+
+    const infoDiv = document.createElement('div');
+    infoDiv.classList.add('info');
+
+    const details = ['name', 'exam', 'batch', 'mark'];
+    details.forEach(detail => {
+      const p = document.createElement('p');
+      p.textContent = `${detail.charAt(0).toUpperCase() + detail.slice(1)}: ${topper[detail]}`;
+      infoDiv.appendChild(p);
+    });
+
+    card.appendChild(infoDiv);
+
+    toppersContainer.innerHTML = '';
+    toppersContainer.appendChild(card);
+
+    // Change to the next topper after 2 seconds
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % toppers.length;
+      showTopper(currentIndex);
+    }, 2000);
+  }
+
+  // Show the first topper
+  showTopper(currentIndex);
+}
+
+// Fetch data from your API
+fetch('https://6549fbdce182221f8d52442e.mockapi.io/toppers')
+  .then(response => response.json())
+  .then(data => {
+    const toppers = data; // Assuming API response is an array of toppers
+    displayToppers(toppers);
+  })
+  .catch(error => {
+    console.log('Error fetching data:', error);
   });
-
-  index = (index + 1) % toppers.length;
-  toppers[index].style.display = 'flex';
-}
-
-function rotateToppers() {
-  displayNextTopper();
-  setTimeout(rotateToppers, 2000); // Rotate every 2 seconds
-}
-
-rotateToppers(); // Start the rotation
