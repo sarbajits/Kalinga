@@ -106,7 +106,7 @@ function prevBanner() {
 function startSlider() {
   timer = setInterval(() => {
     nextBanner();
-  }, 10000); // Change banner every 10 seconds
+  }, 5000); // Change banner every 5 seconds
 }
 
 // Function to reset the timer
@@ -304,3 +304,16 @@ fetch('https://6549fbdce182221f8d52442e.mockapi.io/toppers')
     console.log('Error fetching data:', error);
   });
 
+
+
+  document.querySelectorAll('.zoomable-image').forEach(image => {
+    image.addEventListener('click', function() {
+        image.classList.toggle('zoomed');
+    });
+});
+
+document.querySelectorAll('.zoomable-image').forEach(image => {
+  image.addEventListener('hover', function() {
+      image.classList.toggle('zoomed');
+  });
+});

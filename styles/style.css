@@ -126,7 +126,7 @@ body.nav-hidden .main {
 
 .note-section {
     height: fit-content;
-    width: 90vw;
+    width: 100%;
     background-color: rgb(255, 187, 0);
     display: flex;
     flex-direction: column;
@@ -193,6 +193,7 @@ footer {
     border-radius: 6px;
     margin: 10px 5px;
     padding: 20px 5px;
+    margin-bottom: 40px;
 }
 
 .footer-content {
@@ -306,6 +307,7 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .card {
@@ -314,7 +316,7 @@ h4 {
     border-radius: 6px;
     padding: 10px;
     margin: 10px;
-    width: 90vw;
+    width: 95%;
     justify-content: center;
     background-color: black;
     filter: drop-shadow(2px 2px 2px rgb(255, 187, 0));
@@ -347,9 +349,10 @@ h4 {
 
 #whatsapp {
     height: 50px;
+    width: 50px;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
     z-index: 10;
     filter: drop-shadow(4px 4px 4px black);
 }
@@ -401,10 +404,10 @@ h4 {
 
 .admin {
     height: 100px;
-    width: 90vw;
+    width: 100%;
     padding: 40px;
     margin: 20px;
-    background-color: rgb(0, 0, 100,0.5);
+    background-color: rgb(0, 0, 100, 0.5);
     text-align: center;
     border-top: 10px solid rgb(255, 187, 0);
     border-bottom: 10px solid rgb(255, 187, 0);
@@ -412,8 +415,9 @@ h4 {
     background-size: cover;
     letter-spacing: 2px;
 }
-.admin h2{
-    font-family:monospace;
+
+.admin h2 {
+    font-family: monospace;
     filter: drop-shadow(4px 4px 4px rgb(0, 0, 247));
 }
 
@@ -422,40 +426,43 @@ h4 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Adjust the gap between items */
-  }
-  
-  /* Style for each item */
-  .container > div {
+    gap: 20px;
+    /* Adjust the gap between items */
+}
+
+/* Style for each item */
+.container>div {
     border: 1px solid #ccc;
     padding: 20px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
-  }
-  
-  /* Style for the image */
-  .container img {
+}
+
+/* Style for the image */
+.container img {
     width: 100%;
     height: auto;
     border-radius: 6px;
     margin-bottom: 10px;
-  }
-  
-  /* Style for the caption */
-  .container p {
+}
+
+/* Style for the caption */
+.container p {
     margin: 0;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  /* Style for the description */
-  .container p:last-child {
+    text-align: center;
+}
+
+/* Style for the description */
+.container p:last-child {
     display: none;
     margin-top: 10px;
     font-weight: normal;
-  }
+    color: rgb(255, 187, 0);
+}
 
-  .navigation{
+.navigation {
     width: 100%;
     background-color: rgb(255, 187, 0);
     border-bottom-left-radius: 8px;
@@ -463,13 +470,33 @@ h4 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
+}
 
-  .navigation button{
-    background-color:red;
-    margin: 2px 10px;
+.navigation button {
+    background-color: red;
+    margin: 10px 20px;
     height: 20px;
     width: 20px;
     border-radius: 8px;
     border: 1px solid black;
-  }
+    font-weight: bolder;
+}
+
+
+.image-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.zoomable-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.zoomable-image .zoomed {
+    transform: scale(1.5);
+    /* Adjust scale for more zoom if needed */
+    cursor: zoom-out;
+    /* Change cursor to indicate it's clickable to zoom out */
+}
