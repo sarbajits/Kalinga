@@ -16,6 +16,9 @@
             margin: 0;
             padding: 20px;
             color: black;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
         }
 
         h1 {
@@ -23,12 +26,14 @@
         }
 
         form {
+            width: 80%;
             max-width: 400px;
             margin: 0 auto;
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         label {
@@ -58,6 +63,28 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        #responseContainer{
+            width: 80%;
+            text-align: center;
+        }
+        .response-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+
+        .delete-btn {
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            background-color: #e74c3c;
+            color: white;
+        }
     </style>
 </head>
 
@@ -65,10 +92,11 @@
     <h1>Exam API</h1>
     <form id="examForm">
         <label for="examTitle">Exam Title:</label>
-        <input type="text" id="examTitle" name="examTitle"><br><br>
+        <input type="text" id="examTitle" name="examTitle" required><br><br>
 
         <label for="exam">Exam:</label>
         <select id="exam" name="exam">
+            <option value="others">--select--</option>
             <option value="access">MS Access</option>
             <option value="accounting">Accounting</option>
             <option value="c">C Programming</option>
@@ -87,11 +115,11 @@
         </select><br><br>
 
         <label for="examUrl">Exam URL:</label>
-        <input type="text" id="examUrl" name="examUrl"><br><br>
+        <input type="text" id="examUrl" name="examUrl" required><br><br>
 
         <input type="submit" value="Submit">
     </form>
-
+    <div id="responseContainer"></div>
     <script>
         document.getElementById('examForm').addEventListener('submit', function (event) {
             event.preventDefault();
@@ -120,7 +148,9 @@
                     if (response.ok) {
                         console.log('Data sent to the API');
                         form.reset();
-                        alert('Data sent successfully!');
+                        alert('Exam created successfully!');
+                        displayResponses();
+
                     } else {
                         console.log('Error sending data to the API');
                     }
@@ -129,6 +159,56 @@
                     console.error('Error:', error);
                 });
         });
+
+        function displayResponses() {
+            fetch('https://6549fbdce182221f8d52442e.mockapi.io/exam')
+                .then(response => response.json())
+                .then(data => {
+                    const responseContainer = document.getElementById('responseContainer');
+                    responseContainer.innerHTML = ''; // Clear previous responses
+
+                    data.forEach(response => {
+                        const responseItem = document.createElement('div');
+                        responseItem.className = 'response-item';
+                        responseItem.innerHTML = `
+                            <p>Exam Title: ${response.examTitle}</p>
+                            <p>Exam: ${response.exam}</p>
+                            <p>Exam URL: ${response.examUrl}</p>
+                            <button class="delete-btn">Delete</button>
+                        `;
+
+                        // Delete button action to delete the response
+                        const deleteBtn = responseItem.querySelector('.delete-btn');
+                        deleteBtn.addEventListener('click', () => {
+                            // Delete the response by sending a DELETE request
+                            fetch(`https://6549fbdce182221f8d52442e.mockapi.io/exam/${response.id}`, {
+                                method: 'DELETE'
+                            })
+                                .then(deleteResponse => {
+                                    if (deleteResponse.ok) {
+                                        console.log('Response deleted:', response);
+                                        alert('Response deleted');
+                                        // Remove the deleted response from the UI
+                                        responseItem.remove();
+                                    } else {
+                                        console.error('Error deleting response');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
+                        });
+
+                        responseContainer.appendChild(responseItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Call the function to display responses on page load
+        displayResponses();
     </script>
 </body>
 

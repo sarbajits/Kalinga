@@ -22,58 +22,49 @@
         </div>
     </nav>
 
-  <div class="loading-screen"> 
-         <div class="logo"></div> 
-         <div class="loader"> 
-         </div> 
-     </div>
+    <div class="loading-screen">
+        <div class="logo"></div>
+        <div class="loader">
+        </div>
+    </div>
 
     <div class="main">
-
         <div class="note-section">
-            <h2>C Programming Exam</h2>
-            <div class="note" onclick="theory1()">
-                <img src="/images/th/c.jpg"
-                    alt="Exam">
-                <h3>C Programming Theory</h3>
-            </div>
-
-
-
-            <!-- <div class="note" onclick="practical1()">
-                <img src="/images/th/powerpoint.jpg"
-                    alt="Exam">
-                <h3>Powerpoint Practical</h3>
-            </div> -->
-
-
         </div>
-
-
-
-
-
-
-        <!-- <div class="note-section">
-            <h2>Photoshop Exam</h2>
-            <div class="note" onclick="theory2()">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2022/9/GP/QY/YB/30966494/adobe-photoshop-7-0.png" alt="Exam">
-                <h3>Photoshop Theory</h3>
-            </div>
-
-            <div class="note" onclick="practical2()">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2022/9/GP/QY/YB/30966494/adobe-photoshop-7-0.png"
-                    alt="Exam">
-                <h3>Photoshop Practical</h3>
-            </div>
-
-        </div> -->
-
-
-
-
     </div>
     <script src="/scripts/script.js"></script>
+    <script>
+        fetch('https://6549fbdce182221f8d52442e.mockapi.io/exam')
+            .then(response => response.json())
+            .then(data => {
+                const mainDiv = document.querySelector('.note-section');
+
+                data.forEach(exam => {
+                    const noteDiv = document.createElement('div');
+                    noteDiv.classList.add('note');
+                    noteDiv.addEventListener('click', () => redirectToTheory(exam.examUrl));
+
+                    const img = document.createElement('img');
+                    img.src = exam.exam; // Replace with the actual key from your API response
+                    img.alt = exam.examTitle; // Replace with the actual key for the title
+
+                    const h3 = document.createElement('h3');
+                    h3.textContent = exam.examTitle; // Replace with the actual key for the title
+
+                    noteDiv.appendChild(img);
+                    noteDiv.appendChild(h3);
+
+                    mainDiv.appendChild(noteDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        function redirectToTheory(examUrl) {
+            window.location.href = `theory.html?url=${examUrl}`;
+        }
+    </script>
 </body>
 
 </html>

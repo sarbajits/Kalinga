@@ -1906,7 +1906,7 @@ function checkCredentials() {
         if (username === users[i].username && password === users[i].password) {
             // alert("Login successful!");
             alert.innerHTML = "Loading....";
-            window.open("/api/topper.html", "_self");
+            window.open("/admin-panel.html", "_self");
             return;
         }
     }
