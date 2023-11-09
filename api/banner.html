@@ -11,7 +11,8 @@
         .upload-container {
             max-width: 400px;
             margin: 0 auto;
-            border: 2px solid black;
+            border: 1px solid black;
+            box-shadow: 4px 4px 4px black;
             padding: 8px;
             border-radius: 8px;
             display: flex;
@@ -58,7 +59,8 @@
         /* Styling for the submit button */
         .submit-button {
             background-color: #2ecc71;
-            color: #fff;
+            color: #000;
+            font-weight: bold;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -69,15 +71,72 @@
         .submit-button:hover {
             background-color: #27ae60;
         }
-        #preview{
-            height: 100px;
-            border: 2px solid black;
+
+        #preview {
+            width: 100%;
+            border: 1px solid black;
+            box-shadow: 2px 2px 4px black;
             padding: 4px;
             margin: 10px 0px;
             border-radius: 8px;
         }
-        h1{
+
+        h1 {
             text-align: center;
+            border: 1px solid black;
+            box-shadow: 4px 4px 4px black;
+            border-radius: 8px;
+            background-color: #2ecc71;
+        }
+
+        .previous-banners {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid black;
+            box-shadow: 4px 4px 4px black;
+        }
+
+        .previous-banners h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Styling for each individual banner box */
+        .banner-box {
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+            box-shadow: 4px 4px 4px black;
+        }
+
+        .banner-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid black;
+            box-shadow: 4px 4px 4px black;
+        }
+
+        .banner-info {
+            text-align: center;
+        }
+
+        .banner-info p {
+            margin: 5px 0;
+        }
+
+        .banner-info .delete-button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -93,27 +152,32 @@
         <button onclick="sendData()" class="submit-button">Submit</button>
     </div>
 
+
+    <div class="previous-banners">
+        <h2>Previously Uploaded Banners</h2>
+        <div id="bannerList"></div>
+    </div>
     <script>
         // Function to handle the Cloudinary image upload widget
         function openCloudinaryWidget() {
-    cloudinary.openUploadWidget(
-        {
-            cloudName: 'sarbajit',
-            uploadPreset: 'kalinga',
-            sources: ['local']
-        },
-        (error, result) => {
-            if (!error && result && result.event === 'success') {
-                console.log('Upload success. Public ID:', result.info.public_id);
-                const imageUrl = result.info.secure_url;
+            cloudinary.openUploadWidget(
+                {
+                    cloudName: 'sarbajit',
+                    uploadPreset: 'kalinga',
+                    sources: ['local']
+                },
+                (error, result) => {
+                    if (!error && result && result.event === 'success') {
+                        console.log('Upload success. Public ID:', result.info.public_id);
+                        const imageUrl = result.info.secure_url;
 
-                // Set the uploaded image URL to banner_img
-                document.getElementById('banner_img').value = imageUrl;
-                document.getElementById('preview').src=imageUrl;
-            }
+                        // Set the uploaded image URL to banner_img
+                        document.getElementById('banner_img').value = imageUrl;
+                        document.getElementById('preview').src = imageUrl;
+                    }
+                }
+            );
         }
-    );
-}
 
 
         // Function to send data to your API
@@ -138,6 +202,8 @@
                 .then(data => {
                     alert("Photo uploaded successfully.")
                     console.log('Data sent:', data);
+                    document.getElementsByClassName('upload-container').reset(); // Reset the form fields
+                    fetchPreviousBanners();
                     // You can add further handling or UI updates here
                 })
                 .catch(error => {
@@ -147,6 +213,53 @@
 
         // Event listener for the custom upload button
         document.getElementById('upload_button').addEventListener('click', openCloudinaryWidget);
+
+        // Function to handle the deletion of a specific banner
+        function deleteBanner(id) {
+            fetch(`https://654ca07977200d6ba8591dfa.mockapi.io/banner/${id}`, {
+                method: 'DELETE',
+            })
+                .then(() => {
+                    fetchPreviousBanners(); // Reload banners after deletion
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Function to fetch previously uploaded banners and display them
+function fetchPreviousBanners() {
+    fetch('https://654ca07977200d6ba8591dfa.mockapi.io/banner')
+        .then(response => response.json())
+        .then(data => {
+            const bannerList = document.getElementById('bannerList');
+
+            // Clear any existing content
+            bannerList.innerHTML = '';
+
+            // Display each previously uploaded banner with its caption, description, and a delete button inside a styled box
+            data.forEach(banner => {
+                const bannerElement = document.createElement('div');
+                bannerElement.classList.add('banner-box');
+                bannerElement.innerHTML = `
+                    <img src="${banner.banner_img}" alt="Banner Image">
+                    <div class="banner-info">
+                        <p><strong>Caption:</strong> ${banner.caption}</p>
+                        <p><strong>Description:</strong> ${banner.description}</p>
+                        <button class="delete-button" onclick="deleteBanner(${banner.id})">Delete</button>
+                    </div>
+                `;
+                bannerList.appendChild(bannerElement);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+// Call the function to fetch and display previously uploaded banners
+fetchPreviousBanners();
+
 
     </script>
 </body>

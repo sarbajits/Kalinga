@@ -1,3 +1,120 @@
+// Function to fetch data from the API
+async function fetchData() {
+  try {
+    const response = await fetch('https://654ca07977200d6ba8591dfa.mockapi.io/banner');
+    const data = await response.json();
+    displayData(data);
+  } catch (error) {
+    console.log('Error fetching data: ', error);
+  }
+}
+
+// Function to display data in the div
+function displayData(data) {
+  const container = document.getElementById('dataContainer');
+
+  data.forEach(item => {
+    const div = document.createElement('div');
+    
+    const img = document.createElement('img');
+    img.src = item.banner_img;
+    
+    const caption = document.createElement('p');
+    caption.textContent = item.caption;
+    caption.style.cursor = 'pointer';
+    
+    const description = document.createElement('p');
+    description.textContent = item.description;
+    description.style.display = 'none';
+    
+    // Show description when clicking on the caption
+    caption.addEventListener('click', () => {
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    div.appendChild(img);
+    div.appendChild(caption);
+    div.appendChild(description);
+    container.appendChild(div);
+  });
+}
+
+// Fetch and display the data
+fetchData();
+let currentIndex = 0;
+let timer;
+
+// Function to display data with image slider
+function displayData(data) {
+  const container = document.getElementById('dataContainer');
+
+  data.forEach((item, index) => {
+    const div = document.createElement('div');
+    div.classList.add('slide');
+    
+    const img = document.createElement('img');
+    img.src = item.banner_img;
+    
+    const caption = document.createElement('p');
+    caption.textContent = item.caption;
+    caption.classList.add('caption');
+    caption.style.cursor = 'pointer';
+    
+    const description = document.createElement('p');
+    description.textContent = item.description;
+    description.classList.add('description');
+    description.style.display = 'none';
+    
+    caption.addEventListener('click', () => {
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    div.appendChild(img);
+    div.appendChild(caption);
+    div.appendChild(description);
+    container.appendChild(div);
+  });
+
+  showBanner(currentIndex); // Show the first banner
+  startSlider(); // Start automatic sliding
+}
+
+// Function to show a specific banner
+function showBanner(index) {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide) => {
+    slide.style.display = 'none';
+  });
+  slides[index].style.display = 'block';
+}
+
+// Function for the next banner
+function nextBanner() {
+  currentIndex = (currentIndex + 1) % document.querySelectorAll('.slide').length;
+  showBanner(currentIndex);
+  resetTimer();
+}
+
+// Function for the previous banner
+function prevBanner() {
+  currentIndex = (currentIndex - 1 + document.querySelectorAll('.slide').length) % document.querySelectorAll('.slide').length;
+  showBanner(currentIndex);
+  resetTimer();
+}
+
+// Function to start automatic sliding
+function startSlider() {
+  timer = setInterval(() => {
+    nextBanner();
+  }, 10000); // Change banner every 10 seconds
+}
+
+// Function to reset the timer
+function resetTimer() {
+  clearInterval(timer);
+  startSlider();
+}
+
 // const studentsData = [
 //   { image: '/images/toppers/st1.jpg', name: 'Sadhu' },
 //   { image: '/images/toppers/st2.jpg', name: 'Ashis' },
@@ -53,25 +170,25 @@
 // updateStudents();
 // rotateStudents();
 
-let slideIndex = 0;
-showSlides();
+// let slideIndex = 0;
+// showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  setTimeout(showSlides, 2000);
-}
+// function showSlides() {
+//   let i;
+//   let slides = document.getElementsByClassName("mySlides");
+//   let dots = document.getElementsByClassName("dot");
+//   for (i = 0; i < slides.length; i++) {
+//     slides[i].style.display = "none";
+//   }
+//   slideIndex++;
+//   if (slideIndex > slides.length) { slideIndex = 1 }
+//   for (i = 0; i < dots.length; i++) {
+//     dots[i].className = dots[i].className.replace(" active", "");
+//   }
+//   slides[slideIndex - 1].style.display = "block";
+//   dots[slideIndex - 1].className += " active";
+//   setTimeout(showSlides, 2000);
+// }
 
 const imageUrls = [
   '/images/std/students (14).jpeg',
@@ -186,3 +303,4 @@ fetch('https://6549fbdce182221f8d52442e.mockapi.io/toppers')
   .catch(error => {
     console.log('Error fetching data:', error);
   });
+
