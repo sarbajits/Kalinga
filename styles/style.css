@@ -330,7 +330,7 @@ h4 {
 }
 
 .info {
-    width: auto;
+    width: 80%;
 }
 
 .info p {
@@ -424,15 +424,14 @@ h4 {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* Adjust the gap between items */
 }
 
 /* Style for each item */
 .container>div {
-    border: 1px solid #ccc;
     padding: 20px;
     border: 1px solid rgb(255, 187, 0);
-    filter: drop-shadow(2px 2px 2px rgb(255, 187, 0));
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px rgb(255, 187, 0);
 }
 
 /* Style for the image */
@@ -449,6 +448,7 @@ h4 {
     font-weight: bold;
     cursor: pointer;
     text-align: center;
+    color: rgb(255, 187, 0);
 }
 
 /* Style for the description */
@@ -456,7 +456,7 @@ h4 {
     display: none;
     margin-top: 10px;
     font-weight: normal;
-    color: rgb(255, 187, 0);
+    color: white;
 }
 
 .navigation {
@@ -471,7 +471,7 @@ h4 {
 
 .button {
     width: 100%;
-    height: 100%;
+    height: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -486,7 +486,7 @@ h4 {
 .button button {
     font-size: 20px;
     font-weight: bolder;
-    height: 100%;
+    height: 200%;
     width: 10%;
     color: rgb(255, 187, 0);
     background: linear-gradient(to left ,rgba(0, 0, 0, 0), black);

@@ -68,6 +68,10 @@ function displayData(data) {
     caption.addEventListener('click', () => {
       description.style.display = description.style.display === 'none' ? 'block' : 'none';
     });
+
+    description.addEventListener('click',()=>{
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    });
     
     div.appendChild(img);
     div.appendChild(caption);
