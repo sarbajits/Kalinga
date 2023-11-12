@@ -1914,19 +1914,19 @@ function checkCredentials() {
     alert.innerHTML = "Wrong Password!!!";
 }
 
-let prevScrollPos = window.pageYOffset;
+// let prevScrollPos = window.pageYOffset;
 
-window.onscroll = function () {
-    const currentScrollPos = window.pageYOffset;
-    if (prevScrollPos > currentScrollPos) {
-        document.querySelector('nav').classList.remove('hidden-nav');
-        document.body.classList.remove('nav-hidden');
-    } else {
-        document.querySelector('nav').classList.add('hidden-nav');
-        document.body.classList.add('nav-hidden');
-    }
-    prevScrollPos = currentScrollPos;
-}
+// window.onscroll = function () {
+//     const currentScrollPos = window.pageYOffset;
+//     if (prevScrollPos > currentScrollPos) {
+//         document.querySelector('nav').classList.remove('hidden-nav');
+//         document.body.classList.remove('nav-hidden');
+//     } else {
+//         document.querySelector('nav').classList.add('hidden-nav');
+//         document.body.classList.add('nav-hidden');
+//     }
+//     prevScrollPos = currentScrollPos;
+// }
 
 // function openSecondWebpage(value) {
 //     // Encode the value to ensure proper URL handling

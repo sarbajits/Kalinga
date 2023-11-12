@@ -20,7 +20,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position:sticky;
     z-index: 10;
     background: rgb(255, 255, 255);
     background: url(https://i.giphy.com/media/PUL4ZTI7bC6QM/giphy.webp);
@@ -58,19 +58,15 @@ body.nav-hidden .main {
 }
 
 .main {
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 10px;
-    position: relative;
-    top: 85px;
+    /* position: relative;
+    top: 60px; */
     background: url(https://i.giphy.com/media/PUL4ZTI7bC6QM/giphy.webp);
     background-size: contain;
 }
-
-.main h3 {
-    animation: blink-animation 0.5s step-start infinite;
+.main h2{
+    color: black;
+    text-align: center;
 }
 
 #topperCarousel h2 {
@@ -125,22 +121,13 @@ body.nav-hidden .main {
 }
 
 .note-section {
-    height: fit-content;
     width: 100%;
     background-color: rgb(255, 187, 0);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 5px;
     padding: 5px;
     border-radius: 6px;
     margin-top: 20px;
     text-align: center;
-}
-
-.note-section h2 {
-    color: black;
-    margin-bottom: 5px;
 }
 
 .note {
@@ -158,12 +145,20 @@ body.nav-hidden .main {
 .note img {
     margin: auto;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     border-top: 10px solid rgb(0, 0, 81);
     border-bottom: 10px solid rgb(0, 0, 81);
     border-radius: 8px;
 }
-
+.note h3{
+    width: 100%;
+    color: white;
+    background-color: rgb(0, 0, 81);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 6px;
+    animation: blink-animation 1s step-start infinite;
+}
 .button {
     display: flex;
     flex-direction: column;
@@ -187,16 +182,20 @@ body.nav-hidden .main {
 }
 
 footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
     color: #333;
-    width: 100%;
+    width: 95%;
     background-color: #f0f0f0;
     border-radius: 6px;
     margin: 10px 5px;
     padding: 20px 5px;
     margin-bottom: 40px;
-}
-
-.footer-content {
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -401,9 +400,8 @@ h4 {
 
 .admin {
     height: 100px;
-    width: 100%;
+    width: 95%;
     padding: 40px;
-    margin: 20px;
     background-color: rgb(0, 0, 100, 0.5);
     text-align: center;
     border-top: 10px solid rgb(255, 187, 0);
@@ -495,20 +493,32 @@ h4 {
 .button button:nth-child(even){
     background: linear-gradient(to right ,rgba(0, 0, 0, 0), black);
 }
-.image-container {
-    overflow: hidden;
-    position: relative;
-}
 
-.zoomable-image {
-    width: 100%;
-    height: auto;
-    transition: transform 0.2s ease-in-out;
-}
+/* Media query for laptops or computers */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
 
-.zoomable-image .zoomed {
-    transform: scale(1.5);
-    /* Adjust scale for more zoom if needed */
-    cursor: zoom-out;
-    /* Change cursor to indicate it's clickable to zoom out */
+    /* Adjust layout for larger screens */
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .note-section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    /* Styles for each div inside the main section */
+    .flex {
+        width: 48%; /* Adjust the width as needed */
+        margin-bottom: 20px; /* Add spacing between the div elements */
+        box-sizing: border-box; /* Include padding and border in the width */
+        padding: 10px; /* Add padding for spacing inside the divs */
+    }
+    .note img{
+        height: 60vh;
+    }
 }
