@@ -65,7 +65,7 @@ body.nav-hidden .main {
     background-size: contain;
 }
 .main h2{
-    color: black;
+    color: white;
     text-align: center;
 }
 
@@ -409,6 +409,7 @@ h4 {
     border-radius: 8px;
     background-size: cover;
     letter-spacing: 2px;
+    margin: auto;
 }
 
 .admin h2 {
