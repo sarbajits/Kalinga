@@ -35,7 +35,7 @@ body {
     width: 100px;
     height: 89px;
     /* Add your logo background or content here */
-    background-image: url('/images/logo-loading.png');
+    background-image: url('/images/loading_1.png');
     background-size: cover;
 }
 
