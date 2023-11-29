@@ -15,7 +15,7 @@ function checkPasswordAndRemoveOverlay() {
     const password = document.getElementById('passwordInput').value;
 
     // Replace 'your_password' with your actual password
-    if (password === 'ss') {
+    if (password === 'kce') {
         document.getElementById('overlay').style.zIndex = -100;
     } else {
         // alert('Incorrect password. Please try again.');
@@ -26,7 +26,7 @@ function checkPasswordAndRefresh() {
     const password = document.getElementById('passwordInput').value;
 
     // Replace 'your_password' with your actual password
-    if (password === 'ss') {
+    if (password === 'kce') {
         location.reload();
         password === "";
     } else {
