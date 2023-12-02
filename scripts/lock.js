@@ -17,6 +17,7 @@ function checkPasswordAndRemoveOverlay() {
     // Replace 'your_password' with your actual password
     if (password === 'kce') {
         document.getElementById('overlay').style.zIndex = -100;
+        password === "";
     } else {
         // alert('Incorrect password. Please try again.');
     }

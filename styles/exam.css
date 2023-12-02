@@ -49,11 +49,9 @@
 }
 
 iframe {
-    user-select: none;
-    background: linear-gradient(to left, rgb(255, 186, 186), white, rgb(255, 255, 255), white, rgb(255, 186, 186));
-    position: relative;
-    top: 85px;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
+    background: url(https://i.giphy.com/media/PUL4ZTI7bC6QM/giphy.webp);
+    background-size: contain;
 }
