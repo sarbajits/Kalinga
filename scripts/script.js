@@ -49,7 +49,7 @@ function practical2() {
 var users = [
     { username: "admin", password: "kce@2006", name: "Kalinga Computer" },
     { username: "staff", password: "kalinga", name: "Kalinga Staff" },
-    { username: "  ", password: "  ", name: "SS" },
+    { username: "s", password: "s", name: "SS" },
     // { username:"temp", password: "kalinga", name: "Kalinga Staff" },
     // {
     //     "name": "Sarbajit Sahoo",
