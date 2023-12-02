@@ -6,26 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
-        /* CSS for Styled Box */
-
+        *{
+            background-color: #212121;
+        }
         .styled-box {
-            width: 300px;
-            padding: 20px;
             border: 2px solid #333;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #f9f9f9;
+            color: white;
+            background-color: #212121;
             text-align: center;
-            margin: 50px auto;
             font-family: Arial, sans-serif;
+            margin: 5px auto;
+            display: flex;
+            flex-direction: column;
         }
 
-        .styled-box h2 {
-            color: #333;
-        }
-
-        .styled-box p {
-            color: #666;
+        .styled-box a{
+            font-size: larger;
+            text-decoration:none;
+            color: wheat;
+            margin: 20px;
+            background-color: red;
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: bolder;
         }
     </style>
 </head>
@@ -33,8 +38,8 @@
 <body>
     <div class="styled-box">
         <h2>Admin Panel</h2>
-        <a href="/api/topper.html">Edit Toppers</a><br>
-        <a href="/api/exam.html">Edit Exam</a><br>
+        <a href="/api/topper.html">Edit Toppers</a>
+        <a href="/api/exam.html">Edit Exam</a>
         <a href="/api/banner.html">Edit Banner</a>
     </div>
 </body>

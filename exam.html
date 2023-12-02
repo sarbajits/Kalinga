@@ -42,6 +42,7 @@
                 data.forEach(exam => {
                     const noteDiv = document.createElement('div');
                     noteDiv.classList.add('note');
+                    noteDiv.classList.add('flex');
                     noteDiv.addEventListener('click', () => redirectToTheory(exam.examUrl));
 
                     const img = document.createElement('img');
