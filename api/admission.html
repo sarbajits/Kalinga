@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            height: fit-content;
+            width: 90vw;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-left: 10px;
+        }
+
+        select,
+        input,
+        textarea {
+            width: 48%;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            box-sizing: border-box;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            height: fit-content;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #aadharUploadBtn,
+        #passportUploadBtn,
+        #cloudinaryUploadBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #aadharPhoto,
+        #passportPhoto,
+        #uploadedCloudinaryPhoto {
+            margin-top: 20px;
+            max-width: 300px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            form {
+                flex-direction: column;
+            }
+
+            select,
+            input,
+            textarea {
+                width: 100%;
+            }
+
+            .form-row {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .photo {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .branch {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #aadharLink {
+            color: red;
+        }
+    </style>
+
+    <!-- Cloudinary Widget script -->
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Kalinga Computer Education</h1>
+    <div class="container">
+
+        <form id="admissionForm">
+            <div class="form-row">
+                <div class="branch">
+                    <h2>Admission Form</h2>
+                    <label for="branch">Select Branch:</label>
+
+                    <select id="branch" name="branch">
+                        <option value="mainCenter">Main Center</option>
+                        <option value="center2">Center-2</option>
+                    </select>
+                </div>
+
+                <div class="photo">
+                    <img src="/images/student-demo.jpg" alt="student-demo" height="150px" border="1" id="studentPhoto">
+                    <button type="button" id="cloudinaryUploadBtn" onclick="openCloudinaryWidget()">Upload
+                        Photo</button>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <label for="batch">Select Batch:</label>
+                <select id="batch" name="batch">
+                    <option value="Batch-1">Batch-1</option>
+                    <option value="Batch-2">Batch-2</option>
+                    <option value="Batch-3">Batch-3</option>
+                    <option value="Batch-4">Batch-4</option>
+                    <option value="Batch-5">Batch-5</option>
+                    <option value="Batch-6">Batch-6</option>
+                    <option value="Batch-7">Batch-7</option>
+                    <option value="Batch-8">Batch-8</option>
+                    <option value="Batch-9">Batch-9</option>
+                    <option value="Batch-10">Batch-10</option>
+                </select>
+
+                <label for="course">Select Course:</label>
+                <select id="course" name="course">
+                    <option value="pgdca">PGDCA</option>
+                    <option value="dca">DCA</option>
+                    <option value="oscit">OSCIT</option>
+                    <option value="olevel">O-level</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required>
+            </div>
+
+            <div class="form-row">
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-row">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+
+                <label for="alternateMobile">Alternate Mobile Number:</label>
+                <input type="tel" id="alternateMobile" name="alternateMobile">
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="aadharNumber">Aadhar Number:</label>
+                <input type="text" id="aadharNumber" name="aadharNumber" maxlength="12">
+            </div>
+            <div class="form-row">
+                <button type="button" id="aadharUploadBtn" onclick="uploadAadharPhoto()">Upload Aadhar Photo</button>
+                <input type="text" id="aadharLink" value="aadharLink" disabled>
+            </div>
+
+
+
+            <!-- Address fields -->
+            <div class="form-row">
+                <label for="at">At:</label>
+                <input type="text" id="at" name="at">
+
+                <label for="post">Post:</label>
+                <input type="text" id="post" name="post">
+            </div>
+
+            <div class="form-row">
+                <label for="policeStation">Police Station:</label>
+                <input type="text" id="policeStation" name="policeStation">
+
+                <label for="block">Block:</label>
+                <input type="text" id="block" name="block">
+            </div>
+
+            <div class="form-row">
+                <label for="district">District:</label>
+                <input type="text" id="district" name="district">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state">
+                <label for="pinCode">Pin Code:</label>
+                <input type="text" id="pinCode" name="pinCode">
+            </div>
+
+            <h2>Educational information</h2>
+
+            <div class="form-row">
+                <label for="10thBoard">10th Board:</label>
+                <input type="text" id="10thBoard" name="10thBoard">
+                <label for="10thRollNo">10th Roll No:</label>
+                <input type="text" id="10thRollNo" name="10thRollNo">
+            </div>
+
+            <div class="form-row">
+                <label for="10thFullMark">10th Full Marks:</label>
+                <input type="number" id="10thFullMark" name="10thFullMark" oninput="calculatePercentage('10th')">
+                <label for="10thSecuredMark">10th Secured Marks:</label>
+                <input type="number" id="10thSecuredMark" name="10thSecuredMark" oninput="calculatePercentage('10th')">
+                <label for="10thSecuredPercent">Percentage:</label>
+                <input type="number" id="10thPercentage" name="10thPercentage" readonly>
+            </div>
+
+            <div class="form-row">
+                <label for="12thBoard">+2 Board:</label>
+                <input type="text" id="12thBoard" name="12thBoard">
+                <label for="12thRollNo">+2 Roll No:</label>
+                <input type="text" id="12thRollNo" name="12thRollNo">
+            </div>
+
+            <div class="form-row">
+                <label for="12thFullMark">+2 Full Marks:</label>
+                <input type="number" id="12thFullMark" name="12thFullMark" oninput="calculatePercentage('12th')">
+                <label for="12thSecuredMark">+2 Secured Marks:</label>
+                <input type="number" id="12thSecuredMark" name="12thSecuredMark" oninput="calculatePercentage('12th')">
+                <label for="12thSecuredPercent">Percentage:</label>
+                <input type="number" id="12thPercentage" name="12thPercentage" readonly>
+            </div>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function calculatePercentage(educationLevel) {
+            var fullMark = parseFloat(document.getElementById(educationLevel + 'FullMark').value) || 0;
+            var securedMark = parseFloat(document.getElementById(educationLevel + 'SecuredMark').value) || 0;
+            var percentageField = document.getElementById(educationLevel + 'Percentage');
+
+            var percentage = (securedMark / fullMark) * 100;
+            if (!isNaN(percentage)) {
+                percentageField.value = percentage.toFixed(2);
+            } else {
+                percentageField.value = '';
+            }
+        }
+
+        function uploadAadharPhoto() {
+            // Cloudinary upload widget configuration
+            var widget = cloudinary.createUploadWidget({
+                cloudName: 'sarbajit', // Replace with your Cloudinary cloud name
+                uploadPreset: 'kalinga', // Replace with your Cloudinary upload preset
+                sources: ['local', 'url', 'camera', 'image_search'],
+                multiple: false,
+            }, (error, result) => {
+                if (!error && result && result.event === "success") {
+                    // Handle the uploaded photo
+                    var uploadedPhotoUrl = result.info.secure_url;
+                    displayAadharPhoto(uploadedPhotoUrl);
+
+                }
+            });
+            // Open the Cloudinary widget
+            widget.open();
+        }
+
+
+        function displayAadharPhoto(uploadedPhotoUrl) {
+            var aadharLink = document.getElementById('aadharLink');
+            aadharLink.value = uploadedPhotoUrl;
+        }
+
+
+        function openCloudinaryWidget() {
+            // Cloudinary upload widget configuration
+            var widget = cloudinary.createUploadWidget({
+                cloudName: 'sarbajit', // Replace with your Cloudinary cloud name
+                uploadPreset: 'kalinga', // Replace with your Cloudinary upload preset
+                sources: ['local', 'url', 'camera', 'image_search'],
+                multiple: false,
+                maxFiles: 1,
+            }, (error, result) => {
+                if (!error && result && result.event === "success") {
+                    // Handle the uploaded photo
+                    var uploadedPhotoUrl = result.info.secure_url;
+                    displayUploadedCloudinaryPhoto(uploadedPhotoUrl);
+                }
+            });
+
+            // Open the Cloudinary widget
+            widget.open();
+        }
+
+        function displayUploadedCloudinaryPhoto(photoUrl) {
+            var studentPhoto = document.getElementById('studentPhoto');
+
+            studentPhoto.src = photoUrl;
+        }
+    </script>
+
+</body>
+
+</html>
