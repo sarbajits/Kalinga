@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Apps Script Web App Demo</title>
+</head>
+<body>
+
+  <h1>Google Apps Script Web App Demo</h1>
+
+  <!-- Form to submit data using POST request -->
+  <h2>Submit Data</h2>
+  <form id="dataForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+    <br>
+    <button type="button" onclick="postData()">Submit</button>
+  </form>
+
+  <!-- Display data fetched using GET request -->
+  <h2>Fetched Data</h2>
+  <ul id="dataList"></ul>
+
+  <script>
+    // Function to submit data using POST request
+    function postData() {
+  const name = document.getElementById('name').value;
+  const city = document.getElementById('city').value;
+
+  const data = {
+    name: name,
+    city: city
+  };
+
+  console.log('POST Request Data:', data);
+
+  fetch('https://script.google.com/macros/s/AKfycbyvEgeV3iwAmFmxE9nR3Wu_-Ev0REloxVmTmDkQtqoy0-2tRqTGkG0Z9BtQxwUqppc5YQ/exec', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': 'http://127.0.0.1:5500', // Set your actual domain
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('POST Success:', data);
+    // Refresh the fetched data after successful POST
+    fetchData();
+  })
+  .catch((error) => {
+    alert('POST Error:', error);
+    // Handle errors, if needed
+  });
+}
+
+
+    // Function to fetch data using GET request
+    function fetchData() {
+      fetch('https://script.google.com/macros/s/AKfycbyvEgeV3iwAmFmxE9nR3Wu_-Ev0REloxVmTmDkQtqoy0-2tRqTGkG0Z9BtQxwUqppc5YQ/exec')
+        .then(response => response.json())
+        .then(data => {
+          console.log('GET Success:', data);
+
+          const dataList = document.getElementById('dataList');
+          dataList.innerHTML = '';
+
+          data.data.forEach(entry => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Name: ${entry[0]}, City: ${entry[1]}`;
+            dataList.appendChild(listItem);
+          });
+        })
+        .catch((error) => {
+          console.error('GET Error:', error);
+          // Handle errors, if needed
+        });
+    }
+
+    // Fetch data when the page loads
+    window.onload = fetchData;
+  </script>
+
+</body>
+</html>
