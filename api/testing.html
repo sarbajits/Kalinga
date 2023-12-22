@@ -28,46 +28,44 @@
   <script>
     // Function to submit data using POST request
     function postData() {
-  const name = document.getElementById('name').value;
-  const city = document.getElementById('city').value;
+      const name = document.getElementById('name').value;
+      const city = document.getElementById('city').value;
 
-  const data = {
-    name: name,
-    city: city
-  };
+      const data = {
+        name: name,
+        city: city
+      };
 
-  console.log('POST Request Data:', data);
+      const apiUrl = 'https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbyvEgeV3iwAmFmxE9nR3Wu_-Ev0REloxVmTmDkQtqoy0-2tRqTGkG0Z9BtQxwUqppc5YQ/exec';
 
-  fetch('https://script.google.com/macros/s/AKfycbyvEgeV3iwAmFmxE9nR3Wu_-Ev0REloxVmTmDkQtqoy0-2tRqTGkG0Z9BtQxwUqppc5YQ/exec', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://127.0.0.1:5500', // Set your actual domain
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => response.json())
-  .then(data => {
-    alert('POST Success:', data);
-    // Refresh the fetched data after successful POST
-    fetchData();
-  })
-  .catch((error) => {
-    alert('POST Error:', error);
-    // Handle errors, if needed
-  });
-}
-
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('POST Success:', data);
+        fetchData();
+      })
+      .catch((error) => {
+        console.error('POST Error:', error);
+      });
+    }
 
     // Function to fetch data using GET request
     function fetchData() {
-      fetch('https://script.google.com/macros/s/AKfycbyvEgeV3iwAmFmxE9nR3Wu_-Ev0REloxVmTmDkQtqoy0-2tRqTGkG0Z9BtQxwUqppc5YQ/exec')
+      const dataList = document.getElementById('dataList');
+      dataList.innerHTML = '';
+
+      const apiUrl = 'https://script.google.com/macros/s/AKfycbyvEgeV3iwAmFmxE9nR3Wu_-Ev0REloxVmTmDkQtqoy0-2tRqTGkG0Z9BtQxwUqppc5YQ/exec';
+
+      fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
           console.log('GET Success:', data);
-
-          const dataList = document.getElementById('dataList');
-          dataList.innerHTML = '';
 
           data.data.forEach(entry => {
             const listItem = document.createElement('li');
@@ -77,7 +75,6 @@
         })
         .catch((error) => {
           console.error('GET Error:', error);
-          // Handle errors, if needed
         });
     }
 
