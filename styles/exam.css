@@ -1,3 +1,15 @@
+#refresh{
+    color: white;
+    background-color: green;
+    padding: 8px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    filter: drop-shadow(4px 4px 4px black);
+    border-radius: 50px;
+    border: none;
+}
 .overlay {
     display: flex;
     justify-content: center;

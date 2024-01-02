@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/exam.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
@@ -32,6 +33,7 @@
         <div class="note-section">
         </div>
     </div>
+    <button id="refresh">Refresh</button>
     <script src="/scripts/script.js"></script>
     <script>
         fetch('https://6549fbdce182221f8d52442e.mockapi.io/exam')
@@ -65,6 +67,16 @@
         function redirectToTheory(examUrl) {
             window.location.href = `theory.html?url=${examUrl}`;
         }
+
+        const refresh=document.getElementById("refresh");
+        refresh.addEventListener("click",()=>{
+            refresh.style.backgroundColor="red";
+            refresh.style.padding="8px 20px";
+            refresh.style.borderLeft="2px solid white";
+            refresh.style.borderRight="2px solid white";
+            window.location.reload();
+        });
+
     </script>
 </body>
 
