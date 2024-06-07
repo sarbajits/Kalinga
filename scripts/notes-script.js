@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h2>${note.title}</h2>
                 <p><strong>Teacher:</strong> ${note.teacher}</p>
                 <p><strong>Upload Date:</strong> ${new Date(note.upload_date).toLocaleString()}</p>
-                <a href="view-pdf.html?pdf=${encodeURIComponent(note.pdf_url)}" target="_blank">View PDF</a>
+                <a href="view-pdf.html?pdf=${encodeURIComponent(note.pdf_url)}" target="_self">View PDF</a>
             `;
             notesList.appendChild(noteCard);
         });
