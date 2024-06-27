@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uploaded Notes</title>
     <link rel="stylesheet" href="/styles/notes-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Uploaded Notes</h1>
-        <div class="controls">
-            <select id="sort-options">
-                <option value="date-asc">Sort by Date (Ascending)</option>
-                <option value="date-desc">Sort by Date (Descending)</option>
-            </select>
-            <select id="filter-options">
-                <option value="all">Filter by Teacher (All)</option>
-                <option value="Ranjan Sir">Ranjan Sir</option>
+        <h2>Note Library</h2>
+        <div id="teacher-selection-modal" class="modal">
+            <div class="modal-content">
+                <h2>Select Teacher</h2>
+                <select id="teacher-options">
+                    <option value="all">All Notes</option>
+                    <option value="Ranjan Sir">Ranjan Sir</option>
                     <option value="Muna Sir">Muna Sir</option>
                     <option value="Atul Sir">Atul Sir</option>
                     <option value="Sarbajit Sir">Sarbajit Sir</option>
                     <option value="Unknown">Unknown</option>
+                </select>
+                <button id="close-modal">Select</button>
+            </div>
+        </div>
+        <div id="search-bar" class="search-bar" style="display: none;">
+            <input type="text" id="search-input" placeholder="Search notes by title or teacher...">
+            <select id="teacher-filter">
+                <option value="all">All Notes</option>
+                <option value="Ranjan Sir">Ranjan Sir</option>
+                <option value="Muna Sir">Muna Sir</option>
+                <option value="Atul Sir">Atul Sir</option>
+                <option value="Sarbajit Sir">Sarbajit Sir</option>
+                <option value="Unknown">Unknown</option>
             </select>
         </div>
         <div id="notes-list" class="notes-list"></div>

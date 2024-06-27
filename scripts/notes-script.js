@@ -1,9 +1,12 @@
-// notes-scripts.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    const teacherSelectionModal = document.getElementById('teacher-selection-modal');
+    const closeModalButton = document.getElementById('close-modal');
+    const searchBar = document.getElementById('search-bar');
+    const searchInput = document.getElementById('search-input');
     const notesList = document.getElementById('notes-list');
-    const sortOptions = document.getElementById('sort-options');
-    const filterOptions = document.getElementById('filter-options');
-    
+    const teacherOptions = document.getElementById('teacher-options');
+    const teacherFilter = document.getElementById('teacher-filter');
+
     let notesData = [];
 
     // Mock API URL (replace with your actual API URL)
@@ -16,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             notesData = data.map(note => ({
                 ...note,
-                teacher: note.teacher || 'N/A',
+                teacher: note.teacher || 'Unknown',
                 upload_date: note.upload_date || new Date().toISOString()
             }));
             displayNotes(notesData);
@@ -35,41 +38,80 @@ document.addEventListener('DOMContentLoaded', function() {
 
             noteCard.innerHTML = `
                 <h2>${note.title}</h2>
-                <p><strong>Teacher:</strong> ${note.teacher}</p>
-                <p><strong>Upload Date:</strong> ${new Date(note.upload_date).toLocaleString()}</p>
-                <a href="view-pdf.html?pdf=${encodeURIComponent(note.pdf_url)}" target="_self">View PDF</a>
+                <canvas class="pdf-preview"></canvas>
             `;
+
+            noteCard.addEventListener('click', () => {
+                window.open(note.pdf_url, '_blank');
+            });
+
             notesList.appendChild(noteCard);
+
+            // Render PDF preview using PDF.js
+            renderPDFPreview(note.pdf_url, noteCard.querySelector('.pdf-preview'));
         });
     };
 
-    // Function to sort notes
-    const sortNotes = (notes, criteria) => {
-        return notes.sort((a, b) => {
-            if (criteria === 'date-asc') {
-                return new Date(a.upload_date) - new Date(b.upload_date);
-            } else if (criteria === 'date-desc') {
-                return new Date(b.upload_date) - new Date(a.upload_date);
-            }
+    // Function to render PDF preview using PDF.js
+    const renderPDFPreview = (pdfUrl, canvas) => {
+        const loadingTask = pdfjsLib.getDocument(pdfUrl);
+        loadingTask.promise.then(pdf => {
+            // Fetch the first page
+            pdf.getPage(1).then(page => {
+                const viewport = page.getViewport({ scale: 0.2 });
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+        }).catch(error => {
+            console.error('Error rendering PDF preview:', error);
         });
     };
 
     // Function to filter notes by teacher
-    const filterNotes = (notes, teacher) => {
-        return teacher === 'all' ? notes : notes.filter(note => note.teacher === teacher);
+    const filterNotes = (teacher) => {
+        return teacher === 'all' ? notesData : notesData.filter(note => note.teacher === teacher);
     };
 
-    // Event listeners for sorting and filtering
-    sortOptions.addEventListener('change', () => {
-        const sortedNotes = sortNotes([...notesData], sortOptions.value);
-        displayNotes(filterNotes(sortedNotes, filterOptions.value));
+    // Function to search notes by title and teacher
+    const searchNotes = (query) => {
+        return notesData.filter(note => 
+            note.title.toLowerCase().includes(query.toLowerCase()) ||
+            note.teacher.toLowerCase().includes(query.toLowerCase())
+        );
+    };
+
+    // Event listener for closing modal and showing notes
+    closeModalButton.addEventListener('click', () => {
+        teacherSelectionModal.style.display = 'none';
+        const selectedTeacher = teacherOptions.value;
+        teacherFilter.value = selectedTeacher;
+        const filteredNotes = filterNotes(selectedTeacher);
+        displayNotes(filteredNotes);
+        searchBar.style.display = 'block';
     });
 
-    filterOptions.addEventListener('change', () => {
-        const filteredNotes = filterNotes(notesData, filterOptions.value);
-        displayNotes(sortNotes(filteredNotes, sortOptions.value));
+    // Event listener for changing teacher filter
+    teacherFilter.addEventListener('change', () => {
+        const selectedTeacher = teacherFilter.value;
+        const filteredNotes = filterNotes(selectedTeacher);
+        displayNotes(filteredNotes);
     });
 
-    // Fetch and display notes on page load
+    // Event listener for searching notes
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value;
+        const searchedNotes = searchNotes(query);
+        displayNotes(searchedNotes);
+    });
+
+    // Fetch notes on page load and open modal
     fetchNotes();
+    teacherSelectionModal.style.display = 'block';
 });
