@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
 
             noteCard.addEventListener('click', () => {
-                window.open(note.pdf_url, '_blank');
+                window.open("/view-pdf.html?pdf=${encodeURIComponent(note.pdf_url)}", '_self');
             });
 
             notesList.appendChild(noteCard);
