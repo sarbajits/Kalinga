@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
         loadingTask.promise.then(pdf => {
             pdf.getPage(1).then(page => {
-                const viewport = page.getViewport({ scale: 0.2 });
+                const viewport = page.getViewport({ scale: 1.5 });
                 const context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
