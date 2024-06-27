@@ -9,10 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let notesData = [];
 
-    // Mock API URL (replace with your actual API URL)
     const apiUrl = 'https://654ca07977200d6ba8591dfa.mockapi.io/notes'; // Example API
 
-    // Function to fetch notes data from the API
     const fetchNotes = async () => {
         try {
             const response = await fetch(apiUrl);
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Function to display notes on the page
     const displayNotes = (notes) => {
         notesList.innerHTML = '';
         notes.forEach(note => {
@@ -42,21 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
 
             noteCard.addEventListener('click', () => {
-                window.open("/view-pdf.html?pdf=${encodeURIComponent(note.pdf_url)}", '_self');
+                window.location.href = `pdf-view.html?pdf=${encodeURIComponent(note.pdf_url)}`;
             });
 
             notesList.appendChild(noteCard);
 
-            // Render PDF preview using PDF.js
             renderPDFPreview(note.pdf_url, noteCard.querySelector('.pdf-preview'));
         });
     };
 
-    // Function to render PDF preview using PDF.js
     const renderPDFPreview = (pdfUrl, canvas) => {
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
         loadingTask.promise.then(pdf => {
-            // Fetch the first page
             pdf.getPage(1).then(page => {
                 const viewport = page.getViewport({ scale: 0.2 });
                 const context = canvas.getContext('2d');
@@ -74,12 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    // Function to filter notes by teacher
     const filterNotes = (teacher) => {
         return teacher === 'all' ? notesData : notesData.filter(note => note.teacher === teacher);
     };
 
-    // Function to search notes by title and teacher
     const searchNotes = (query) => {
         return notesData.filter(note => 
             note.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -87,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
     };
 
-    // Event listener for closing modal and showing notes
     closeModalButton.addEventListener('click', () => {
         teacherSelectionModal.style.display = 'none';
         const selectedTeacher = teacherOptions.value;
@@ -97,21 +88,18 @@ document.addEventListener('DOMContentLoaded', function () {
         searchBar.style.display = 'block';
     });
 
-    // Event listener for changing teacher filter
     teacherFilter.addEventListener('change', () => {
         const selectedTeacher = teacherFilter.value;
         const filteredNotes = filterNotes(selectedTeacher);
         displayNotes(filteredNotes);
     });
 
-    // Event listener for searching notes
     searchInput.addEventListener('input', () => {
         const query = searchInput.value;
         const searchedNotes = searchNotes(query);
         displayNotes(searchedNotes);
     });
 
-    // Fetch notes on page load and open modal
     fetchNotes();
     teacherSelectionModal.style.display = 'block';
 });

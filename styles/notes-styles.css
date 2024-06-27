@@ -28,19 +28,21 @@ h1 {
     max-width: 400px;
     height: 200px;
     overflow: hidden;
-    border: 1px solid #ccc;
+    border: 1px solid #007bff;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
     text-align: center;
     background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px #007bff;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
 .note-card h2 {
     margin: 10px 0;
+    box-shadow: 0 2px 4px #007bff;
+    border-radius: 8px;
 }
 
 .note-card canvas {
@@ -67,18 +69,21 @@ h1 {
 
 .modal-content {
     background-color: #fff;
-    margin: 15% auto;
+    margin: 50% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 400px;
     text-align: center;
+    border-radius: 8px;
 }
 
 #teacher-options {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
 }
 
 #close-modal {
@@ -91,5 +96,11 @@ h1 {
 }
 
 #close-modal:hover {
-    background-color: #0056b3;
+    background-color: #007bff;
+}
+
+#search-input, #teacher-filter{
+    padding: 4px 2px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
 }
