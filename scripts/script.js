@@ -22,7 +22,7 @@ function goBack() {
 }
 
 function note() {
-    window.open("/notes.html", "_self");
+    window.open("/home2.html", "_self");
 }
 
 function login() {
